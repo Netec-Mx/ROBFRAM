@@ -1,0 +1,4 @@
+assets/_plantilla_referencia.pptx
+*.pdf.tmp
+__pycache__/
+*.pyc
