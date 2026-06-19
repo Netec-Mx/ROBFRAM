@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:48:09.669243" rpa="false" schemaversion="5">
+<suite id="s1" name="Rpa E2E Suite" source="/home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/tests/rpa_e2e_suite.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2026-06-16T05:48:12.027201" level="INFO">Creating Session using : alias=api, url=https://postman-echo.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>api</arg>
+<arg>https://postman-echo.com</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-06-16T05:48:12.025955" elapsed="0.002313"/>
+</kw>
+<test id="s1-t1" name="Proceso RPA E2E: extraer, registrar vía API y archivar con checklist" line="20">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:12.032777" level="INFO">CAPA WEB: extrayendo dato de la tabla</msg>
+<arg>CAPA WEB: extrayendo dato de la tabla</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:12.031577" elapsed="0.001468"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:48:12.034711" level="INFO">Opening browser 'headlesschrome' to base url 'https://the-internet.herokuapp.com/tables'.</msg>
+<arg>${URL_TABLA}</arg>
+<arg>headlesschrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:48:12.033736" elapsed="9.966940"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SELECTOR_NOMBRE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.002837" elapsed="0.129578"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:48:22.216362" level="INFO">${apellido_extraido} = Smith</msg>
+<var>${apellido_extraido}</var>
+<arg>${SELECTOR_NOMBRE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.134952" elapsed="0.081628"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.221057" level="INFO">CAPA WEB completada: apellido extraído = Smith</msg>
+<arg>CAPA WEB completada: apellido extraído = ${apellido_extraido}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.218737" elapsed="0.002606"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.223320" level="INFO">CAPA API: registrando el dato extraído</msg>
+<arg>CAPA API: registrando el dato extraído</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.221970" elapsed="0.001688"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.231395" level="INFO">&amp;{payload} = { apellido_cliente=Smith | origen=rpa-practica-16 }</msg>
+<var>&amp;{payload}</var>
+<arg>apellido_cliente=${apellido_extraido}</arg>
+<arg>origen=rpa-practica-16</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.224471" elapsed="0.007155"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-06-16T05:48:22.451342" level="INFO">POST Request : url=https://postman-echo.com/post 
+ path_url=/post 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '58', 'Content-Type': 'application/json'} 
+ body=b'{"apellido_cliente": "Smith", "origen": "rpa-practica-16"}' 
+ </msg>
+<msg time="2026-06-16T05:48:22.452172" level="INFO">POST Response : url=https://postman-echo.com/post 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 16 Jun 2026 10:48:22 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'etag': 'W/"190-5puNPu2NtgZfgYqnhkuxMpc7xOc"', 'vary': 'Accept-Encoding', 'x-envoy-upstream-service-time': '4', 'cf-cache-status': 'DYNAMIC', 'Set-Cookie': 'sails.sid=s%3ANDYAdylLAoBemrOkweaM5LXs3wz8O0Wz.8ru%2Bw5ytL5QuruSkiMoqKFlJNknLhW26E5HMKhbp4RA; Path=/; HttpOnly, __cf_bm=ZUrhSoW5PQZNbdh0iINsJAhG3NukzzWiYly9vSWzicg-1781606902.3320622-1.0.1.1-lfAE5NgQi0frxrnFxj1tsG5mOg13Lmsgn898qAdeVKos3L8zr1cbJINp9mEASrF65MswZtROcDOe_.MNkF0YZR1yBWSyq9Jx0uNK4u8uMRRisG22PnxlFjBpZzueJ4Rw; HttpOnly; SameSite=None; Secure; Path=/; Domain=postman-echo.com; Expires=Tue, 16 Jun 2026 11:18:22 GMT, _cfuvid=PD.FfjCed1xxLajSz5x1ExYivZJ79vKtnbK8MRD6LMc-1781606902.3320622-1.0.1.1-LbGUXrmqAvqf6.FkJJIgo_f5cdpmpJzwRJV1jl5t5TY; HttpOnly; SameSite=None; Secure; Path=/; Domain=postman-echo.com', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a0c93de39c65c2a1-LIM'} 
+ body={"args":{},"data":{"apellido_cliente":"Smith","origen":"rpa-practica-16"},"files":{},"form":{},"headers":{"host":"postman-echo.com","content-length":"58","user-agent":"python-requests/2.34.2","content-type":"application/json","accept":"*/*","x-forwarded-proto":"https","accept-encoding":"gzip, br"},"json":{"apellido_cliente":"Smith","origen":"rpa-practica-16"},"url":"https://postman-echo.com/post"} 
+ </msg>
+<msg time="2026-06-16T05:48:22.453097" level="INFO">${respuesta} = &lt;Response [200]&gt;</msg>
+<var>${respuesta}</var>
+<arg>api</arg>
+<arg>/post</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.232399" elapsed="0.220950"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.459585" level="INFO">CAPA API completada: status=200</msg>
+<arg>CAPA API completada: status=${respuesta.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.454438" elapsed="0.005558"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.463215" level="INFO">CAPA ARCHIVO: registrando el resultado localmente</msg>
+<arg>CAPA ARCHIVO: registrando el resultado localmente</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.460871" elapsed="0.002733"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-16T05:48:22.465456" level="INFO" html="true">Directory '&lt;a href="file:///home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/salida"&gt;/home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/salida&lt;/a&gt;' already exists.</msg>
+<arg>/home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/tests/../salida</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.464473" elapsed="0.001405"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2026-06-16T05:48:22.471044" level="INFO" html="true">Appended to file '&lt;a href="file:///home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/salida/resultado_rpa.csv"&gt;/home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/salida/resultado_rpa.csv&lt;/a&gt;'.</msg>
+<arg>${ARCHIVO_SALIDA}</arg>
+<arg>${apellido_extraido},${respuesta.status_code}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.467189" elapsed="0.004298"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.476652" level="INFO">CAPA ARCHIVO completada: /home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/tests/../salida/resultado_rpa.csv</msg>
+<arg>CAPA ARCHIVO completada: ${ARCHIVO_SALIDA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.474679" elapsed="0.002268"/>
+</kw>
+<kw name="Ejecutar Checklist De Calidad">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.484437" level="INFO">${checklist} = []</msg>
+<var>${checklist}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.482947" elapsed="0.001662"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.487729" level="INFO">${item_web} = PASS</msg>
+<var>${item_web}</var>
+<arg>"""${apellido}""" != ""</arg>
+<arg>PASS</arg>
+<arg>FAIL</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.485507" elapsed="0.002397"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${checklist}</arg>
+<arg>Capa Web (dato no vacío): ${item_web}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.488680" elapsed="0.001919"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.493236" level="INFO">${item_api} = PASS</msg>
+<var>${item_api}</var>
+<arg>${status_api} == 200</arg>
+<arg>PASS</arg>
+<arg>FAIL</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.491407" elapsed="0.001998"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${checklist}</arg>
+<arg>Capa API (status 200): ${item_api}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.494033" elapsed="0.001175"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2026-06-16T05:48:22.498807" level="INFO" html="true">File '&lt;a href="file:///home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/salida/resultado_rpa.csv"&gt;/home/csotelo/Development/formativa/robfram-code/sesion-08/practica-16-rpa-e2e/salida/resultado_rpa.csv&lt;/a&gt;' exists.</msg>
+<arg>${ruta_archivo}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.497523" elapsed="0.001567"/>
+</kw>
+<msg time="2026-06-16T05:48:22.499595" level="INFO">${archivo_existe} = True</msg>
+<var>${archivo_existe}</var>
+<arg>File Should Exist</arg>
+<arg>${ruta_archivo}</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.495908" elapsed="0.003825"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.501885" level="INFO">${item_archivo} = PASS</msg>
+<var>${item_archivo}</var>
+<arg>${archivo_existe}</arg>
+<arg>PASS</arg>
+<arg>FAIL</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.500361" elapsed="0.001682"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${checklist}</arg>
+<arg>Capa Archivo (existe): ${item_archivo}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.502710" elapsed="0.001115"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.507580" level="INFO">CHECKLIST: Capa Web (dato no vacío): PASS</msg>
+<arg>CHECKLIST: ${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.506109" elapsed="0.001756"/>
+</kw>
+<var name="${item}">Capa Web (dato no vacío): PASS</var>
+<status status="PASS" start="2026-06-16T05:48:22.505509" elapsed="0.002629"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.510821" level="INFO">CHECKLIST: Capa API (status 200): PASS</msg>
+<arg>CHECKLIST: ${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.509442" elapsed="0.001638"/>
+</kw>
+<var name="${item}">Capa API (status 200): PASS</var>
+<status status="PASS" start="2026-06-16T05:48:22.508904" elapsed="0.002429"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:48:22.513635" level="INFO">CHECKLIST: Capa Archivo (existe): PASS</msg>
+<arg>CHECKLIST: ${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.512369" elapsed="0.001517"/>
+</kw>
+<var name="${item}">Capa Archivo (existe): PASS</var>
+<status status="PASS" start="2026-06-16T05:48:22.511864" elapsed="0.002267"/>
+</iter>
+<var>${item}</var>
+<value>@{checklist}</value>
+<status status="PASS" start="2026-06-16T05:48:22.504392" elapsed="0.010036"/>
+</for>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${checklist}</arg>
+<arg>Capa Web (dato no vacío): FAIL</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.515091" elapsed="0.002162"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${checklist}</arg>
+<arg>Capa API (status 200): FAIL</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.517893" elapsed="0.001891"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${checklist}</arg>
+<arg>Capa Archivo (existe): FAIL</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.520413" elapsed="0.001485"/>
+</kw>
+<arg>${apellido_extraido}</arg>
+<arg>${respuesta.status_code}</arg>
+<arg>${ARCHIVO_SALIDA}</arg>
+<doc>Verifica las 3 capas del proceso y falla el test
+con un mensaje claro si alguna condición no se
+cumple — un checklist real, no solo un assert ciego.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.479186" elapsed="0.043222"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-16T05:48:22.523516" elapsed="0.180215"/>
+</kw>
+<doc>Flujo completo en tres capas: Web -&gt; API -&gt; Archivo,
+cerrado con un checklist de calidad.</doc>
+<status status="PASS" start="2026-06-16T05:48:12.029044" elapsed="10.675054"/>
+</test>
+<doc>Práctica 16 — Sesión 8.
+Proceso RPA end-to-end: extrae un dato de una página web,
+lo envía a una API, lo registra en un archivo local, y
+cierra con un checklist de calidad sobre las 3 capas.</doc>
+<status status="PASS" start="2026-06-16T05:48:09.674483" elapsed="13.033338"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Rpa E2E Suite" id="s1" pass="1" fail="0" skip="0">Rpa E2E Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

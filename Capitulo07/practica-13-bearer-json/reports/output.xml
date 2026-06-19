@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:32:22.928767" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Bearer Suite" source="/home/csotelo/Development/formativa/robfram-code/sesion-07/practica-13-bearer-json/tests/api_bearer_suite.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2026-06-16T05:32:23.487493" level="INFO">Creating Session using : alias=api, url=https://postman-echo.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>https://postman-echo.com</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-06-16T05:32:23.486864" elapsed="0.001415"/>
+</kw>
+<test id="s1-t1" name="TC-01 Autenticar con Bearer token y validar que el servidor lo recibió" line="15">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T05:32:23.493444" level="INFO">&amp;{headers} = { Authorization=Bearer token-demo-12345 }</msg>
+<var>&amp;{headers}</var>
+<arg>Authorization=Bearer ${TOKEN_DEMO}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.490542" elapsed="0.003060"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-06-16T05:32:23.800529" level="INFO">GET Request : url=https://postman-echo.com/headers 
+ path_url=/headers 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer token-demo-12345'} 
+ body=None 
+ </msg>
+<msg time="2026-06-16T05:32:23.801013" level="INFO">GET Response : url=https://postman-echo.com/headers 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 16 Jun 2026 10:32:23 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'etag': 'W/"bf-SITQYqYixvSqSxlqPWGEcTM0vLo"', 'vary': 'Accept-Encoding', 'x-envoy-upstream-service-time': '5', 'cf-cache-status': 'DYNAMIC', 'Set-Cookie': 'sails.sid=s%3AhT5onSdCQGjtR4VlvLhf9GhDqQKLCeVJ.EGwZKeW%2FwfUV%2BlXMnlhuK8ArTCopZde68dHu3oypExw; Path=/; HttpOnly, __cf_bm=5nBIylxlYSxddj.GyP21ea3Km9xEh2WS4ZUjb6ljyv0-1781605943.6130884-1.0.1.1-gVqNNyBWpqL1VD1dCuyVRQv_GfVAreXiyPxxXsPm8FryHcg9pED5Bx7D1ut7Gd2i_a67ehcl.CabwQPfJcz.gqijk.rMadaxAzrd31XPPtCtIwb6tbvQ2Pmysie7b_u3; HttpOnly; SameSite=None; Secure; Path=/; Domain=postman-echo.com; Expires=Tue, 16 Jun 2026 11:02:23 GMT, _cfuvid=La_crv56d7Dy5sXlppCBmDjovXQ7JgoaYxlpw7gWWkQ-1781605943.6130884-1.0.1.1-X8wjPKN6Q69PjR3AXkxFdkzomF5.6la13sZrJBllMto; HttpOnly; SameSite=None; Secure; Path=/; Domain=postman-echo.com', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a0c9267b99e0c2c1-LIM'} 
+ body={"headers":{"host":"postman-echo.com","x-forwarded-proto":"https","accept-encoding":"gzip, br","user-agent":"python-requests/2.34.2","authorization":"Bearer token-demo-12345","accept":"*/*"}} 
+ </msg>
+<msg time="2026-06-16T05:32:23.801282" level="INFO">/home/csotelo/.pyenv/versions/3.12.0/envs/robfram/lib/python3.12/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'postman-echo.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-06-16T05:32:23.801734" level="INFO">${respuesta} = &lt;Response [200]&gt;</msg>
+<var>${respuesta}</var>
+<arg>api</arg>
+<arg>/headers</arg>
+<arg>headers=&amp;{headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.494115" elapsed="0.307730"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:32:23.805048" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${respuesta.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.802424" elapsed="0.002902"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${respuesta.json()}[headers][authorization]</arg>
+<arg>Bearer ${TOKEN_DEMO}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.805827" elapsed="0.002963"/>
+</kw>
+<doc>postman-echo.com/headers refleja en la respuesta
+todos los headers recibidos — incluido Authorization
+— ideal para validar el patrón Bearer sin depender
+de un servicio de autenticación real.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.488813" elapsed="0.320544"/>
+</test>
+<test id="s1-t2" name="TC-02 Enviar payload JSON con POST y validar estructura de respuesta" line="25">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T05:32:23.814579" level="INFO">&amp;{payload} = { cliente=Ana Pérez | plan=Premium }</msg>
+<var>&amp;{payload}</var>
+<arg>cliente=Ana Pérez</arg>
+<arg>plan=Premium</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.812912" elapsed="0.001806"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-06-16T05:32:23.929335" level="INFO">POST Request : url=https://postman-echo.com/post 
+ path_url=/post 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sails.sid=s%3AhT5onSdCQGjtR4VlvLhf9GhDqQKLCeVJ.EGwZKeW%2FwfUV%2BlXMnlhuK8ArTCopZde68dHu3oypExw; __cf_bm=5nBIylxlYSxddj.GyP21ea3Km9xEh2WS4ZUjb6ljyv0-1781605943.6130884-1.0.1.1-gVqNNyBWpqL1VD1dCuyVRQv_GfVAreXiyPxxXsPm8FryHcg9pED5Bx7D1ut7Gd2i_a67ehcl.CabwQPfJcz.gqijk.rMadaxAzrd31XPPtCtIwb6tbvQ2Pmysie7b_u3; _cfuvid=La_crv56d7Dy5sXlppCBmDjovXQ7JgoaYxlpw7gWWkQ-1781605943.6130884-1.0.1.1-X8wjPKN6Q69PjR3AXkxFdkzomF5.6la13sZrJBllMto', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"cliente": "Ana P\\u00e9rez", "plan": "Premium"}' 
+ </msg>
+<msg time="2026-06-16T05:32:23.929685" level="INFO">POST Response : url=https://postman-echo.com/post 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 16 Jun 2026 10:32:23 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'etag': 'W/"32b-UqY3SzMzJFXwbcyO5AmNvnMMweE"', 'vary': 'Accept-Encoding', 'Set-Cookie': 'sails.sid=s%3A1XQiV9yaoU6yyfIsE06mwdwxsBNsJE3j.J5DnjpN492Rk1Q5qbiO%2FVKDiYsqsE8LAkQI9xL4wIDM; Path=/; HttpOnly', 'x-envoy-upstream-service-time': '6', 'cf-cache-status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a0c9267cda55c2c1-LIM'} 
+ body={"args":{},"data":{"cliente":"Ana Pérez","plan":"Premium"},"files":{},"form":{},"headers":{"host":"postman-echo.com","user-agent":"python-requests/2.34.2","accept-encoding":"gzip, br","content-type":"application/json","x-forwarded-proto":"https","accept":"*/*","content-length":"48","cookie":"sails.sid=s%3AhT5onSdCQGjtR4VlvLhf9GhDqQKLCeVJ.EGwZKeW%2FwfUV%2BlXMnlhuK8ArTCopZde68dHu3oypExw; __cf_bm=5nBIylxlYSxddj.GyP21ea3Km9xEh2WS4ZUjb6ljyv0-1781605943.6130884-1.0.1.1-gVqNNyBWpqL1VD1dCuyVRQv_GfVAreXiyPxxXsPm8FryHcg9pED5Bx7D1ut7Gd2i_a67ehcl.CabwQPfJcz.gqijk.rMadaxAzrd31XPPtCtIwb6tbvQ2Pmysie7b_u3; _cfuvid=La_crv56d7Dy5sXlppCBmDjovXQ7JgoaYxlpw7gWWkQ-1781605943.6130884-1.0.1.1-X8wjPKN6Q69PjR3AXkxFdkzomF5.6la13sZrJBllMto"},"json":{"cliente":"Ana Pérez","plan":"Premium"},"url":"https://postman-echo.com/post"} 
+ </msg>
+<msg time="2026-06-16T05:32:23.929988" level="INFO">/home/csotelo/.pyenv/versions/3.12.0/envs/robfram/lib/python3.12/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'postman-echo.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-06-16T05:32:23.930558" level="INFO">${respuesta} = &lt;Response [200]&gt;</msg>
+<var>${respuesta}</var>
+<arg>api</arg>
+<arg>/post</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.815204" elapsed="0.115485"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:32:23.934015" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${respuesta.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.931432" elapsed="0.002962"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${respuesta.json()}[json][cliente]</arg>
+<arg>Ana Pérez</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.934897" elapsed="0.002829"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${respuesta.json()}[json][plan]</arg>
+<arg>Premium</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.938291" elapsed="0.002839"/>
+</kw>
+<doc>postman-echo.com/post devuelve, dentro de la clave
+"json", exactamente el payload enviado — útil para
+validar que el cuerpo se serializó correctamente.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.810302" elapsed="0.131343"/>
+</test>
+<test id="s1-t3" name="TC-03 Validar contrato de un endpoint conocido (campos obligatorios)" line="35">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T05:32:23.950324" level="INFO">&amp;{parametros} = { plan=premium }</msg>
+<var>&amp;{parametros}</var>
+<arg>plan=premium</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.944624" elapsed="0.005846"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-06-16T05:32:24.062624" level="INFO">GET Request : url=https://postman-echo.com/get?plan=premium 
+ path_url=/get?plan=premium 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sails.sid=s%3A1XQiV9yaoU6yyfIsE06mwdwxsBNsJE3j.J5DnjpN492Rk1Q5qbiO%2FVKDiYsqsE8LAkQI9xL4wIDM; __cf_bm=5nBIylxlYSxddj.GyP21ea3Km9xEh2WS4ZUjb6ljyv0-1781605943.6130884-1.0.1.1-gVqNNyBWpqL1VD1dCuyVRQv_GfVAreXiyPxxXsPm8FryHcg9pED5Bx7D1ut7Gd2i_a67ehcl.CabwQPfJcz.gqijk.rMadaxAzrd31XPPtCtIwb6tbvQ2Pmysie7b_u3; _cfuvid=La_crv56d7Dy5sXlppCBmDjovXQ7JgoaYxlpw7gWWkQ-1781605943.6130884-1.0.1.1-X8wjPKN6Q69PjR3AXkxFdkzomF5.6la13sZrJBllMto'} 
+ body=None 
+ </msg>
+<msg time="2026-06-16T05:32:24.062954" level="INFO">GET Response : url=https://postman-echo.com/get?plan=premium 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 16 Jun 2026 10:32:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'etag': 'W/"296-o3/fzDDUZMYeElcbvCyFQ0PZ5xI"', 'vary': 'Accept-Encoding', 'Set-Cookie': 'sails.sid=s%3ABK5jrHTXk-iyqfZUFjdeScHqb8x7k_qL.1bQFwtHSLTV9QlgTMgDaLtKejnLYHtSSZS2Ys7hyT1o; Path=/; HttpOnly', 'x-envoy-upstream-service-time': '5', 'cf-cache-status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a0c9267dba85c2c1-LIM'} 
+ body={"args":{"plan":"premium"},"headers":{"host":"postman-echo.com","x-forwarded-proto":"https","accept-encoding":"gzip, br","user-agent":"python-requests/2.34.2","accept":"*/*","cookie":"sails.sid=s%3A1XQiV9yaoU6yyfIsE06mwdwxsBNsJE3j.J5DnjpN492Rk1Q5qbiO%2FVKDiYsqsE8LAkQI9xL4wIDM; __cf_bm=5nBIylxlYSxddj.GyP21ea3Km9xEh2WS4ZUjb6ljyv0-1781605943.6130884-1.0.1.1-gVqNNyBWpqL1VD1dCuyVRQv_GfVAreXiyPxxXsPm8FryHcg9pED5Bx7D1ut7Gd2i_a67ehcl.CabwQPfJcz.gqijk.rMadaxAzrd31XPPtCtIwb6tbvQ2Pmysie7b_u3; _cfuvid=La_crv56d7Dy5sXlppCBmDjovXQ7JgoaYxlpw7gWWkQ-1781605943.6130884-1.0.1.1-X8wjPKN6Q69PjR3AXkxFdkzomF5.6la13sZrJBllMto"},"url":"https://postman-echo.com/get?plan=premium"} 
+ </msg>
+<msg time="2026-06-16T05:32:24.063275" level="INFO">/home/csotelo/.pyenv/versions/3.12.0/envs/robfram/lib/python3.12/site-packages/urllib3/connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'postman-echo.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-06-16T05:32:24.063881" level="INFO">${respuesta} = &lt;Response [200]&gt;</msg>
+<var>${respuesta}</var>
+<arg>api</arg>
+<arg>/get</arg>
+<arg>params=&amp;{parametros}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.950986" elapsed="0.113055"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:32:24.067594" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${respuesta.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:32:24.064637" elapsed="0.003340"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${respuesta.json()}</arg>
+<arg>args</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:32:24.068618" elapsed="0.003910"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${respuesta.json()}[args][plan]</arg>
+<arg>premium</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:32:24.073197" elapsed="0.004460"/>
+</kw>
+<doc>Validación de contrato básica: confirmar que los
+campos esperados existen en la respuesta.</doc>
+<status status="PASS" start="2026-06-16T05:32:23.942561" elapsed="0.135812"/>
+</test>
+<doc>Práctica 13 — Sesión 7.
+Suite de pruebas API con autenticación Bearer y
+validación de estructura/valores de respuesta JSON.</doc>
+<status status="PASS" start="2026-06-16T05:32:22.933119" elapsed="1.147267"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Api Bearer Suite" id="s1" pass="3" fail="0" skip="0">Api Bearer Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

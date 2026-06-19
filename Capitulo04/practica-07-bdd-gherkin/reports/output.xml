@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T04:47:00.727061" rpa="false" schemaversion="5">
+<suite id="s1" name="Activacion Servicio" source="/home/csotelo/Development/formativa/robfram-code/sesion-04/practica-07-bdd-gherkin/tests/activacion_servicio.robot">
+<test id="s1-t1" name="Activación de plan de datos para cliente con crédito suficiente" line="9">
+<kw name="Given un cliente con crédito suficiente existe en el sistema" owner="activacion_keywords">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:00.884083" level="INFO">${CREDITO_DISPONIBLE} = 100</msg>
+<arg>${CREDITO_DISPONIBLE}</arg>
+<arg>${100}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.878607" elapsed="0.005816"/>
+</kw>
+<doc>Given — establece el contexto inicial del escenario.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.876215" elapsed="0.008685"/>
+</kw>
+<kw name="When el cliente solicita la activación de un plan de datos adicional" owner="activacion_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:00.892998" level="INFO">${costo_plan} = 50</msg>
+<var>${costo_plan}</var>
+<arg>${50}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.887396" elapsed="0.005738"/>
+</kw>
+<if>
+<branch type="IF" condition="${CREDITO_DISPONIBLE} &gt;= ${costo_plan}">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:00.898740" level="INFO">${RESULTADO_ACTIVACION} = ACTIVO</msg>
+<arg>${RESULTADO_ACTIVACION}</arg>
+<arg>ACTIVO</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.894778" elapsed="0.004275"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:00.893527" elapsed="0.005760"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${RESULTADO_ACTIVACION}</arg>
+<arg>RECHAZADO</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2026-06-16T04:47:00.900092" elapsed="0.000163"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:47:00.899487" elapsed="0.000983"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:47:00.893415" elapsed="0.007184"/>
+</if>
+<doc>When — la acción que dispara el comportamiento a probar.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.886197" elapsed="0.014751"/>
+</kw>
+<kw name="Then el plan queda activo y el cliente recibe una confirmación" owner="activacion_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${RESULTADO_ACTIVACION}</arg>
+<arg>ACTIVO</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.903172" elapsed="0.001751"/>
+</kw>
+<doc>Then — verificación del resultado esperado.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.901751" elapsed="0.003551"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:00.873245" elapsed="0.032611"/>
+</test>
+<test id="s1-t2" name="Activación rechazada por crédito insuficiente" line="14">
+<kw name="Given un cliente con crédito insuficiente existe en el sistema" owner="activacion_keywords">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:00.914907" level="INFO">${CREDITO_DISPONIBLE} = 0</msg>
+<arg>${CREDITO_DISPONIBLE}</arg>
+<arg>${0}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.910047" elapsed="0.005135"/>
+</kw>
+<doc>Given — variante con crédito insuficiente.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.908771" elapsed="0.006772"/>
+</kw>
+<kw name="When el cliente solicita la activación de un plan de datos adicional" owner="activacion_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:00.919907" level="INFO">${costo_plan} = 50</msg>
+<var>${costo_plan}</var>
+<arg>${50}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.917682" elapsed="0.002355"/>
+</kw>
+<if>
+<branch type="IF" condition="${CREDITO_DISPONIBLE} &gt;= ${costo_plan}">
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${RESULTADO_ACTIVACION}</arg>
+<arg>ACTIVO</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2026-06-16T04:47:00.921320" elapsed="0.000104"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:47:00.920385" elapsed="0.001207"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:00.925372" level="INFO">${RESULTADO_ACTIVACION} = RECHAZADO</msg>
+<arg>${RESULTADO_ACTIVACION}</arg>
+<arg>RECHAZADO</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.922068" elapsed="0.003515"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:00.921706" elapsed="0.004047"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:47:00.920292" elapsed="0.005570"/>
+</if>
+<doc>When — la acción que dispara el comportamiento a probar.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.916589" elapsed="0.009509"/>
+</kw>
+<kw name="Then la activación es rechazada y se informa el motivo" owner="activacion_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${RESULTADO_ACTIVACION}</arg>
+<arg>RECHAZADO</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.927919" elapsed="0.001325"/>
+</kw>
+<doc>Then — verificación del resultado esperado (camino negativo).</doc>
+<status status="PASS" start="2026-06-16T04:47:00.926770" elapsed="0.002767"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:00.906930" elapsed="0.023017"/>
+</test>
+<doc>Práctica 7 — Sesión 4.
+Escenarios BDD (Given/When/Then) para un flujo comercial
+de telecomunicaciones: activación de un plan de datos.</doc>
+<status status="PASS" start="2026-06-16T04:47:00.731177" elapsed="0.200228"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Activacion Servicio" id="s1" pass="2" fail="0" skip="0">Activacion Servicio</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:20:22.264513" rpa="false" schemaversion="5">
+<suite id="s1" name="Web Page Object Suite" source="/home/csotelo/Development/formativa/robfram-code/sesion-06/practica-12-page-object/tests/web_page_object_suite.robot">
+<test id="s1-t1" name="TC-01 Iniciar sesión exitosamente usando el Page Object" line="16">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-06-16T05:20:23.813799" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>headlesschrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:20:23.812890" elapsed="2.073950"/>
+</kw>
+<kw name="Abrir Pagina De Login" owner="LoginPage">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:25.907987" level="INFO">Opening url 'https://the-internet.herokuapp.com/login'</msg>
+<arg>${URL_LOGIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:20:25.905057" elapsed="2.003321"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_USUARIO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:20:27.909559" elapsed="0.079971"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:25.896532" elapsed="2.093448"/>
+</kw>
+<kw name="Ingresar Credenciales" owner="LoginPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:27.993926" level="INFO">Typing text 'tomsmith' into text field 'id:username'.</msg>
+<arg>${CAMPO_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:20:27.992369" elapsed="0.379578"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:28.373848" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-06-16T05:20:28.555008" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:20:28.372609" elapsed="0.499315"/>
+</kw>
+<arg>tomsmith</arg>
+<arg>SuperSecretPassword!</arg>
+<status status="PASS" start="2026-06-16T05:20:27.990922" elapsed="0.881506"/>
+</kw>
+<kw name="Hacer Clic En Ingresar" owner="LoginPage">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:28.884132" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${BOTON_INGRESAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:20:28.882783" elapsed="1.013402"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:28.873213" elapsed="1.023432"/>
+</kw>
+<kw name="Verificar Mensaje Flash Contiene" owner="LoginPage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAJE_FLASH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:20:29.898872" elapsed="0.133883"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:30.136783" level="INFO">Element 'css:#flash' contains text 'You logged into a secure area'.</msg>
+<arg>${MENSAJE_FLASH}</arg>
+<arg>${texto_esperado}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:20:30.033524" elapsed="0.103565"/>
+</kw>
+<arg>You logged into a secure area</arg>
+<status status="PASS" start="2026-06-16T05:20:29.897440" elapsed="0.240036"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:30.224886" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-16T05:20:30.141161" elapsed="0.084136"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-16T05:20:30.226024" elapsed="0.176378"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>AND</arg>
+<arg>Close All Browsers</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-16T05:20:30.138580" elapsed="0.264304"/>
+</kw>
+<doc>El test no conoce ningún selector técnico — solo
+llama keywords de LoginPage.resource.</doc>
+<status status="PASS" start="2026-06-16T05:20:23.807166" elapsed="6.596133"/>
+</test>
+<test id="s1-t2" name="TC-02 Rechazar credenciales inválidas usando el Page Object" line="24">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-06-16T05:20:30.408218" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>headlesschrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:20:30.407240" elapsed="2.028522"/>
+</kw>
+<kw name="Abrir Pagina De Login" owner="LoginPage">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:32.446093" level="INFO">Opening url 'https://the-internet.herokuapp.com/login'</msg>
+<arg>${URL_LOGIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:20:32.445020" elapsed="2.353874"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_USUARIO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:20:34.801705" elapsed="0.097713"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:32.440004" elapsed="2.459904"/>
+</kw>
+<kw name="Ingresar Credenciales" owner="LoginPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:34.905803" level="INFO">Typing text 'usuario_invalido' into text field 'id:username'.</msg>
+<arg>${CAMPO_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:20:34.904478" elapsed="0.427142"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:35.333986" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-06-16T05:20:35.461837" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:20:35.332262" elapsed="0.417679"/>
+</kw>
+<arg>usuario_invalido</arg>
+<arg>clave_invalida</arg>
+<status status="PASS" start="2026-06-16T05:20:34.900828" elapsed="0.851678"/>
+</kw>
+<kw name="Hacer Clic En Ingresar" owner="LoginPage">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:35.757203" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${BOTON_INGRESAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:20:35.755864" elapsed="0.647327"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:35.753887" elapsed="0.649808"/>
+</kw>
+<kw name="Verificar Mensaje Flash Contiene" owner="LoginPage">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAJE_FLASH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:20:36.414907" elapsed="0.335741"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:36.827847" level="INFO">Element 'css:#flash' contains text 'Your username is invalid!'.</msg>
+<arg>${MENSAJE_FLASH}</arg>
+<arg>${texto_esperado}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:20:36.751390" elapsed="0.076985"/>
+</kw>
+<arg>Your username is invalid!</arg>
+<status status="PASS" start="2026-06-16T05:20:36.409029" elapsed="0.419734"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:36.928847" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-16T05:20:36.831965" elapsed="0.097320"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-16T05:20:36.930044" elapsed="0.133656"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>AND</arg>
+<arg>Close All Browsers</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-16T05:20:36.829757" elapsed="0.234411"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:30.405052" elapsed="6.659502"/>
+</test>
+<test id="s1-t3" name="TC-03 Aceptar una alerta simple de JavaScript" line="30">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-06-16T05:20:37.071827" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>headlesschrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:20:37.070956" elapsed="2.424140"/>
+</kw>
+<kw name="Abrir Pagina De Alertas" owner="AlertsPage">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:39.501572" level="INFO">Opening url 'https://the-internet.herokuapp.com/javascript_alerts'</msg>
+<arg>${URL_ALERTAS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:20:39.500575" elapsed="1.987578"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTON_JS_ALERT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:20:41.488894" elapsed="0.109549"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:39.497109" elapsed="2.101841"/>
+</kw>
+<kw name="Disparar Alerta Simple Y Aceptar" owner="AlertsPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:41.604877" level="INFO">Clicking element 'css:button[onclick='jsAlert()']'.</msg>
+<arg>${BOTON_JS_ALERT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:20:41.603624" elapsed="0.315948"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:41.921486" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>action=ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-06-16T05:20:41.920816" elapsed="0.066270"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:41.600159" elapsed="0.387406"/>
+</kw>
+<kw name="Verificar Resultado Contiene" owner="AlertsPage">
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:42.108049" level="INFO">Element 'id:result' contains text 'You successfully clicked an alert'.</msg>
+<arg>${RESULTADO_ALERTA}</arg>
+<arg>${texto_esperado}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:20:41.989894" elapsed="0.118459"/>
+</kw>
+<arg>You successfully clicked an alert</arg>
+<status status="PASS" start="2026-06-16T05:20:41.988402" elapsed="0.120317"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:42.283259" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-16T05:20:42.111917" elapsed="0.171676"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-16T05:20:42.284226" elapsed="0.139353"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>AND</arg>
+<arg>Close All Browsers</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-16T05:20:42.109660" elapsed="0.314304"/>
+</kw>
+<doc>Maneja una alerta nativa del navegador (no es un
+elemento del DOM, requiere Handle Alert).</doc>
+<status status="PASS" start="2026-06-16T05:20:37.067824" elapsed="5.356417"/>
+</test>
+<test id="s1-t4" name="TC-04 Cancelar una confirmación de JavaScript" line="37">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-06-16T05:20:42.427899" level="INFO">Opening browser 'headlesschrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>headlesschrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:20:42.427154" elapsed="1.973948"/>
+</kw>
+<kw name="Abrir Pagina De Alertas" owner="AlertsPage">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:44.406496" level="INFO">Opening url 'https://the-internet.herokuapp.com/javascript_alerts'</msg>
+<arg>${URL_ALERTAS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:20:44.405117" elapsed="1.782625"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTON_JS_ALERT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:20:46.188710" elapsed="0.105169"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:44.403263" elapsed="1.891133"/>
+</kw>
+<kw name="Disparar Confirmacion Y Cancelar" owner="AlertsPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:46.297248" level="INFO">Clicking element 'css:button[onclick='jsConfirm()']'.</msg>
+<arg>${BOTON_JS_CONFIRM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:20:46.296186" elapsed="0.300569"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:46.598229" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>action=DISMISS</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-06-16T05:20:46.597440" elapsed="0.040248"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:46.295099" elapsed="0.343031"/>
+</kw>
+<kw name="Verificar Resultado Contiene" owner="AlertsPage">
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:46.863070" level="INFO">Element 'id:result' contains text 'You clicked: Cancel'.</msg>
+<arg>${RESULTADO_ALERTA}</arg>
+<arg>${texto_esperado}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:20:46.640430" elapsed="0.222950"/>
+</kw>
+<arg>You clicked: Cancel</arg>
+<status status="PASS" start="2026-06-16T05:20:46.638999" elapsed="0.224756"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:20:47.023781" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-16T05:20:46.867514" elapsed="0.156598"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-16T05:20:47.024908" elapsed="0.121658"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>AND</arg>
+<arg>Close All Browsers</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-16T05:20:46.864734" elapsed="0.282186"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:20:42.425430" elapsed="4.721762"/>
+</test>
+<doc>Práctica 12 — Sesión 6.
+Suite web estructurada bajo patrón Page Object, con
+captura de evidencias automática en CADA test (no solo
+en fallo) y manejo de alertas de JavaScript.</doc>
+<status status="PASS" start="2026-06-16T05:20:22.268595" elapsed="24.880824"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Web Page Object Suite" id="s1" pass="4" fail="0" skip="0">Web Page Object Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

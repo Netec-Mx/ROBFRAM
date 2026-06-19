@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:53:06.477135" rpa="false" schemaversion="5">
+<suite id="s1" name="Simulacro Rfcp Suite" source="/home/csotelo/Development/formativa/robfram-code/sesion-09/practica-18-simulacro-rfcp/tests/simulacro_rfcp_suite.robot">
+<test id="s1-t1" name="Simulacro RFCP: un participante con 8 de 10 correctas aprueba" line="15">
+<kw name="Cargar Preguntas" owner="simulacro_rfcp">
+<msg time="2026-06-16T05:53:06.806994" level="INFO">@{preguntas} = [ {'id': 1, 'pregunta': '¿Cuál es la única sección obligatoria en un archivo .robot?', 'opciones': ['Settings', 'Variables', 'Test Cases', 'Keywords'], 'respuesta_correcta': 'Test Cases'} | {'id': 2, ...</msg>
+<var>@{preguntas}</var>
+<arg>${ARCHIVO_PREGUNTAS}</arg>
+<doc>Carga las preguntas del simulacro desde un archivo JSON.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.804920" elapsed="0.002297"/>
+</kw>
+<kw name="Construir Respuestas Con N Incorrectas">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.817212" level="INFO">${respuestas} = {}</msg>
+<var>${respuestas}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.813565" elapsed="0.003875"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.821716" level="INFO">${contador} = 0</msg>
+<var>${contador}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.817956" elapsed="0.004555"/>
+</kw>
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.827559" elapsed="0.001970"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.825155" elapsed="0.004620"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.830494" elapsed="0.000139"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.829944" elapsed="0.000898"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.824953" elapsed="0.006016"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.834994" level="INFO">${contador} = 1</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.831500" elapsed="0.003701"/>
+</kw>
+<var name="${pregunta}">{'id': 1, 'pregunta': '¿Cuál es la única sección obligatoria en un archivo .robot?', 'opciones': ['Settings', 'Variables', 'Test Cases', 'Keywords'], 'respuesta_correcta': 'Test Cases'}</var>
+<status status="PASS" start="2026-06-16T05:53:06.824585" elapsed="0.010853"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.837498" elapsed="0.001400"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.836546" elapsed="0.002725"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.839990" elapsed="0.000297"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.839437" elapsed="0.002798"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.836464" elapsed="0.006004"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.854010" level="INFO">${contador} = 2</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.843044" elapsed="0.011166"/>
+</kw>
+<var name="${pregunta}">{'id': 2, 'pregunta': '¿Qué librería se importa automáticamente, sin necesidad de declararla en Settings?', 'opciones': ['Collections', 'OperatingSystem', 'BuiltIn', 'String'], 'respuesta_correcta': '...</var>
+<status status="PASS" start="2026-06-16T05:53:06.836282" elapsed="0.018127"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.856596" elapsed="0.000110"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.855574" elapsed="0.001314"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.865038" elapsed="0.005714"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.864311" elapsed="0.006910"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.855422" elapsed="0.015965"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.878294" level="INFO">${contador} = 3</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.874068" elapsed="0.004382"/>
+</kw>
+<var name="${pregunta}">{'id': 3, 'pregunta': '¿Qué prefijo de variable representa una lista en Robot Framework?', 'opciones': ['${lista}', '@{lista}', '&amp;{lista}', '%{lista}'], 'respuesta_correcta': '@{lista}'}</var>
+<status status="PASS" start="2026-06-16T05:53:06.855195" elapsed="0.023443"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.883603" elapsed="0.000148"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.879718" elapsed="0.004239"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.884515" elapsed="0.001384"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.884096" elapsed="0.002152"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.879623" elapsed="0.006890"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.889349" level="INFO">${contador} = 4</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.887178" elapsed="0.002299"/>
+</kw>
+<var name="${pregunta}">{'id': 4, 'pregunta': '¿Qué keyword permite que un test continúe ejecutándose tras un fallo, sin propagar la excepción de inmediato?', 'opciones': ['Run Keyword And Expect Error', 'Run Keyword And Con...</var>
+<status status="PASS" start="2026-06-16T05:53:06.879437" elapsed="0.010207"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.891956" elapsed="0.000155"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.890720" elapsed="0.001696"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.893408" elapsed="0.003223"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.892683" elapsed="0.004360"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.890627" elapsed="0.006560"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.900401" level="INFO">${contador} = 5</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.897721" elapsed="0.003054"/>
+</kw>
+<var name="${pregunta}">{'id': 5, 'pregunta': 'En BDD con Robot Framework, ¿qué hace el motor con los prefijos Given/When/Then al resolver una keyword?', 'opciones': ['Los usa para elegir la librería correcta', 'Los ignora; ...</var>
+<status status="PASS" start="2026-06-16T05:53:06.890435" elapsed="0.010558"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.903500" elapsed="0.000139"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.902382" elapsed="0.001463"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.904411" elapsed="0.001287"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.903976" elapsed="0.002064"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.902248" elapsed="0.003983"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.909494" level="INFO">${contador} = 6</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.906873" elapsed="0.002790"/>
+</kw>
+<var name="${pregunta}">{'id': 6, 'pregunta': '¿Qué archivo de Robot Framework NO puede contener la sección Test Cases?', 'opciones': ['Una suite .robot', 'Un archivo .resource', 'Un archivo __init__.robot', 'Cualquier archi...</var>
+<status status="PASS" start="2026-06-16T05:53:06.901940" elapsed="0.007918"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.912468" elapsed="0.000190"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.911195" elapsed="0.001869"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.914126" elapsed="0.001479"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.913300" elapsed="0.002551"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.911073" elapsed="0.004910"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.918447" level="INFO">${contador} = 7</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.916519" elapsed="0.002257"/>
+</kw>
+<var name="${pregunta}">{'id': 7, 'pregunta': '¿Cuál de estas opciones de CLI ejecuta solo los test cases que fallaron en una ejecución anterior?', 'opciones': ['--include', '--exclude', '--rerunfailed', '--suite'], 'respues...</var>
+<status status="PASS" start="2026-06-16T05:53:06.910885" elapsed="0.008204"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.921259" elapsed="0.000098"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.920425" elapsed="0.001111"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.921993" elapsed="0.001143"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.921648" elapsed="0.001689"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.920349" elapsed="0.003092"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.927034" level="INFO">${contador} = 8</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.924320" elapsed="0.002874"/>
+</kw>
+<var name="${pregunta}">{'id': 8, 'pregunta': '¿Qué certifica oficialmente la certificación RFCP?', 'opciones': ['El dominio de SeleniumLibrary', 'El dominio del lenguaje y la plataforma central de Robot Framework', 'El domi...</var>
+<status status="PASS" start="2026-06-16T05:53:06.920174" elapsed="0.007215"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.929861" elapsed="0.000201"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.928654" elapsed="0.001767"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.931421" elapsed="0.001590"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.930759" elapsed="0.002469"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.928568" elapsed="0.004771"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.936078" level="INFO">${contador} = 9</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.933802" elapsed="0.002459"/>
+</kw>
+<var name="${pregunta}">{'id': 9, 'pregunta': '¿Qué herramienta combina varios output.xml en un solo reporte?', 'opciones': ['robot', 'rebot', 'robotidy', 'libdoc'], 'respuesta_correcta': 'rebot'}</var>
+<status status="PASS" start="2026-06-16T05:53:06.928374" elapsed="0.008219"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.938893" elapsed="0.000228"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.937984" elapsed="0.001331"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.939811" elapsed="0.001847"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.939434" elapsed="0.002564"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.937894" elapsed="0.004388"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.945376" level="INFO">${contador} = 10</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.943372" elapsed="0.002155"/>
+</kw>
+<var name="${pregunta}">{'id': 10, 'pregunta': '¿Qué parámetro de RequestsLibrary permite validar deliberadamente una respuesta 404 o 500 sin que se lance una excepción?', 'opciones': ['verify=False', 'expected_status=any', ...</var>
+<status status="PASS" start="2026-06-16T05:53:06.937564" elapsed="0.008165"/>
+</iter>
+<var>${pregunta}</var>
+<value>@{preguntas}</value>
+<status status="PASS" start="2026-06-16T05:53:06.822987" elapsed="0.122917"/>
+</for>
+<return>
+<value>${respuestas}</value>
+<status status="PASS" start="2026-06-16T05:53:06.946205" elapsed="0.000234"/>
+</return>
+<msg time="2026-06-16T05:53:06.949224" level="INFO">&amp;{respuestas} = { 1=respuesta-incorrecta | 2=respuesta-incorrecta | 3=@{lista} | 4=Run Keyword And Continue On Failure | 5=Los ignora; son solo para legibilidad humana | 6=Un archivo .resource | 7=--rerunfailed | 8=E...</msg>
+<var>&amp;{respuestas}</var>
+<arg>${preguntas}</arg>
+<arg>${2}</arg>
+<doc>Construye un diccionario {id: respuesta} a partir
+de las preguntas, marcando las primeras N como
+deliberadamente incorrectas — simula un participante
+real sin necesitar datos de entrada externos.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.809653" elapsed="0.139810"/>
+</kw>
+<kw name="Calificar Simulacro" owner="simulacro_rfcp">
+<msg time="2026-06-16T05:53:06.952069" level="INFO">${resultado} = ResultadoSimulacro(total_preguntas=10, correctas=8, porcentaje=80.0, aprobado=True)</msg>
+<var>${resultado}</var>
+<arg>${preguntas}</arg>
+<arg>${respuestas}</arg>
+<doc>Califica las respuestas de un participante contra las preguntas.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.950789" elapsed="0.001453"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.959846" level="INFO">Resultado: 8/10 (80.0%)</msg>
+<arg>Resultado: ${resultado.correctas}/${resultado.total_preguntas} (${resultado.porcentaje}%)</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.952817" elapsed="0.007309"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${resultado.aprobado}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.960657" elapsed="0.003939"/>
+</kw>
+<doc>Simula un participante que responde 8 de 10
+preguntas correctamente (80%, por encima del 70%
+requerido por la certificación real).</doc>
+<status status="PASS" start="2026-06-16T05:53:06.799522" elapsed="0.165680"/>
+</test>
+<test id="s1-t2" name="Simulacro RFCP: un participante con 5 de 10 correctas no aprueba" line="25">
+<kw name="Cargar Preguntas" owner="simulacro_rfcp">
+<msg time="2026-06-16T05:53:06.972605" level="INFO">@{preguntas} = [ {'id': 1, 'pregunta': '¿Cuál es la única sección obligatoria en un archivo .robot?', 'opciones': ['Settings', 'Variables', 'Test Cases', 'Keywords'], 'respuesta_correcta': 'Test Cases'} | {'id': 2, ...</msg>
+<var>@{preguntas}</var>
+<arg>${ARCHIVO_PREGUNTAS}</arg>
+<doc>Carga las preguntas del simulacro desde un archivo JSON.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.969619" elapsed="0.003371"/>
+</kw>
+<kw name="Construir Respuestas Con N Incorrectas">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.980449" level="INFO">${respuestas} = {}</msg>
+<var>${respuestas}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.978058" elapsed="0.002846"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.983999" level="INFO">${contador} = 0</msg>
+<var>${contador}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.981448" elapsed="0.002681"/>
+</kw>
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.987495" elapsed="0.000944"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.986366" elapsed="0.002270"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.989186" elapsed="0.000091"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.988789" elapsed="0.000650"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.986251" elapsed="0.003287"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:06.992923" level="INFO">${contador} = 1</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.989897" elapsed="0.003210"/>
+</kw>
+<var name="${pregunta}">{'id': 1, 'pregunta': '¿Cuál es la única sección obligatoria en un archivo .robot?', 'opciones': ['Settings', 'Variables', 'Test Cases', 'Keywords'], 'respuesta_correcta': 'Test Cases'}</var>
+<status status="PASS" start="2026-06-16T05:53:06.985979" elapsed="0.007325"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.995441" elapsed="0.001355"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:06.994467" elapsed="0.002660"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:06.998129" elapsed="0.000243"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:06.997472" elapsed="0.001576"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:06.994374" elapsed="0.004815"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.001278" level="INFO">${contador} = 2</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.999716" elapsed="0.001689"/>
+</kw>
+<var name="${pregunta}">{'id': 2, 'pregunta': '¿Qué librería se importa automáticamente, sin necesidad de declararla en Settings?', 'opciones': ['Collections', 'OperatingSystem', 'BuiltIn', 'String'], 'respuesta_correcta': '...</var>
+<status status="PASS" start="2026-06-16T05:53:06.994135" elapsed="0.007436"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.003659" elapsed="0.001461"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:07.002817" elapsed="0.002586"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:07.006321" elapsed="0.000125"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:07.005575" elapsed="0.001050"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:07.002715" elapsed="0.004013"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.008928" level="INFO">${contador} = 3</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.007127" elapsed="0.001966"/>
+</kw>
+<var name="${pregunta}">{'id': 3, 'pregunta': '¿Qué prefijo de variable representa una lista en Robot Framework?', 'opciones': ['${lista}', '@{lista}', '&amp;{lista}', '%{lista}'], 'respuesta_correcta': '@{lista}'}</var>
+<status status="PASS" start="2026-06-16T05:53:07.002550" elapsed="0.006758"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.012685" elapsed="0.001100"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:07.011222" elapsed="0.002807"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:07.014700" elapsed="0.000125"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:07.014223" elapsed="0.000792"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:07.011066" elapsed="0.004055"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.018423" level="INFO">${contador} = 4</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.015622" elapsed="0.002955"/>
+</kw>
+<var name="${pregunta}">{'id': 4, 'pregunta': '¿Qué keyword permite que un test continúe ejecutándose tras un fallo, sin propagar la excepción de inmediato?', 'opciones': ['Run Keyword And Expect Error', 'Run Keyword And Con...</var>
+<status status="PASS" start="2026-06-16T05:53:07.010657" elapsed="0.008099"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.020631" elapsed="0.000940"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:07.019767" elapsed="0.002156"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:07.022795" elapsed="0.000155"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:07.022089" elapsed="0.001121"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:07.019691" elapsed="0.003651"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.026087" level="INFO">${contador} = 5</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.024169" elapsed="0.002129"/>
+</kw>
+<var name="${pregunta}">{'id': 5, 'pregunta': 'En BDD con Robot Framework, ¿qué hace el motor con los prefijos Given/When/Then al resolver una keyword?', 'opciones': ['Los usa para elegir la librería correcta', 'Los ignora; ...</var>
+<status status="PASS" start="2026-06-16T05:53:07.019532" elapsed="0.006992"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:07.029592" elapsed="0.000203"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:07.028102" elapsed="0.002241"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.030959" elapsed="0.001842"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:07.030503" elapsed="0.002521"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:07.027942" elapsed="0.005187"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.036140" level="INFO">${contador} = 6</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.033647" elapsed="0.002639"/>
+</kw>
+<var name="${pregunta}">{'id': 6, 'pregunta': '¿Qué archivo de Robot Framework NO puede contener la sección Test Cases?', 'opciones': ['Una suite .robot', 'Un archivo .resource', 'Un archivo __init__.robot', 'Cualquier archi...</var>
+<status status="PASS" start="2026-06-16T05:53:07.027661" elapsed="0.008805"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:07.038252" elapsed="0.000107"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:07.037382" elapsed="0.001164"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.039018" elapsed="0.001373"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:07.038659" elapsed="0.002125"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:07.037306" elapsed="0.003684"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.044085" level="INFO">${contador} = 7</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.042106" elapsed="0.002154"/>
+</kw>
+<var name="${pregunta}">{'id': 7, 'pregunta': '¿Cuál de estas opciones de CLI ejecuta solo los test cases que fallaron en una ejecución anterior?', 'opciones': ['--include', '--exclude', '--rerunfailed', '--suite'], 'respues...</var>
+<status status="PASS" start="2026-06-16T05:53:07.037162" elapsed="0.007322"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:07.048258" elapsed="0.000136"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:07.046701" elapsed="0.001892"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.049164" elapsed="0.001282"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:07.048723" elapsed="0.001963"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:07.046386" elapsed="0.004417"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.053410" level="INFO">${contador} = 8</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.051285" elapsed="0.002369"/>
+</kw>
+<var name="${pregunta}">{'id': 8, 'pregunta': '¿Qué certifica oficialmente la certificación RFCP?', 'opciones': ['El dominio de SeleniumLibrary', 'El dominio del lenguaje y la plataforma central de Robot Framework', 'El domi...</var>
+<status status="PASS" start="2026-06-16T05:53:07.045981" elapsed="0.007990"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:07.057109" elapsed="0.000142"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:07.056055" elapsed="0.001420"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.058129" elapsed="0.002380"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:07.057636" elapsed="0.003245"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:07.055944" elapsed="0.005089"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.063560" level="INFO">${contador} = 9</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.061884" elapsed="0.001808"/>
+</kw>
+<var name="${pregunta}">{'id': 9, 'pregunta': '¿Qué herramienta combina varios output.xml en un solo reporte?', 'opciones': ['robot', 'rebot', 'robotidy', 'libdoc'], 'respuesta_correcta': 'rebot'}</var>
+<status status="PASS" start="2026-06-16T05:53:07.055708" elapsed="0.008159"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${contador} &lt; ${n_incorrectas}">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>respuesta-incorrecta</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2026-06-16T05:53:07.066110" elapsed="0.000186"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T05:53:07.064824" elapsed="0.001740"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${respuestas}</arg>
+<arg>${pregunta}[id]</arg>
+<arg>${pregunta}[respuesta_correcta]</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.067417" elapsed="0.001396"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:53:07.066718" elapsed="0.002391"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:53:07.064751" elapsed="0.004513"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.071721" level="INFO">${contador} = 10</msg>
+<var>${contador}</var>
+<arg>${contador} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.069796" elapsed="0.002104"/>
+</kw>
+<var name="${pregunta}">{'id': 10, 'pregunta': '¿Qué parámetro de RequestsLibrary permite validar deliberadamente una respuesta 404 o 500 sin que se lance una excepción?', 'opciones': ['verify=False', 'expected_status=any', ...</var>
+<status status="PASS" start="2026-06-16T05:53:07.064580" elapsed="0.008103"/>
+</iter>
+<var>${pregunta}</var>
+<value>@{preguntas}</value>
+<status status="PASS" start="2026-06-16T05:53:06.984521" elapsed="0.088399"/>
+</for>
+<return>
+<value>${respuestas}</value>
+<status status="PASS" start="2026-06-16T05:53:07.073333" elapsed="0.000176"/>
+</return>
+<msg time="2026-06-16T05:53:07.074621" level="INFO">&amp;{respuestas} = { 1=respuesta-incorrecta | 2=respuesta-incorrecta | 3=respuesta-incorrecta | 4=respuesta-incorrecta | 5=respuesta-incorrecta | 6=Un archivo .resource | 7=--rerunfailed | 8=El dominio del lenguaje y la...</msg>
+<var>&amp;{respuestas}</var>
+<arg>${preguntas}</arg>
+<arg>${5}</arg>
+<doc>Construye un diccionario {id: respuesta} a partir
+de las preguntas, marcando las primeras N como
+deliberadamente incorrectas — simula un participante
+real sin necesitar datos de entrada externos.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.974971" elapsed="0.099850"/>
+</kw>
+<kw name="Calificar Simulacro" owner="simulacro_rfcp">
+<msg time="2026-06-16T05:53:07.076959" level="INFO">${resultado} = ResultadoSimulacro(total_preguntas=10, correctas=5, porcentaje=50.0, aprobado=False)</msg>
+<var>${resultado}</var>
+<arg>${preguntas}</arg>
+<arg>${respuestas}</arg>
+<doc>Califica las respuestas de un participante contra las preguntas.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.075428" elapsed="0.001783"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:53:07.086619" level="INFO">Resultado: 5/10 (50.0%)</msg>
+<arg>Resultado: ${resultado.correctas}/${resultado.total_preguntas} (${resultado.porcentaje}%)</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.078541" elapsed="0.008344"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${resultado.aprobado}</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2026-06-16T05:53:07.087397" elapsed="0.003894"/>
+</kw>
+<doc>Simula un participante con 50% — por debajo del
+umbral de aprobación.</doc>
+<status status="PASS" start="2026-06-16T05:53:06.966283" elapsed="0.125615"/>
+</test>
+<doc>Práctica 18 — Sesión 9. Proyecto final integrador:
+ejecuta el simulacro RFCP completo y valida la
+calificación, integrando todo lo aprendido en el curso
+(librería Python propia, datos externos, aserciones).</doc>
+<status status="PASS" start="2026-06-16T05:53:06.482764" elapsed="0.611045"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Simulacro Rfcp Suite" id="s1" pass="2" fail="0" skip="0">Simulacro Rfcp Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

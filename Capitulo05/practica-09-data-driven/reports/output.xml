@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:08:53.131129" rpa="false" schemaversion="5">
+<suite id="s1" name="Activacion Data Driven" source="/home/csotelo/Development/formativa/robfram-code/sesion-05/practica-09-data-driven/tests/activacion_data_driven.robot">
+<test id="s1-t1" name="Cliente con crédito suficiente en staging" line="10">
+<kw name="Verificar Resultado De Activacion">
+<kw name="Calcular Resultado De Activacion">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T05:08:53.439490" level="INFO">${credito_num} = 100</msg>
+<var>${credito_num}</var>
+<arg>${credito}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.433050" elapsed="0.006649"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T05:08:53.446382" level="INFO">${costo_num} = 50</msg>
+<var>${costo_num}</var>
+<arg>${costo}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.440320" elapsed="0.006277"/>
+</kw>
+<if>
+<branch type="IF" condition="${credito_num} &gt;= ${costo_num}">
+<return>
+<value>ACTIVO</value>
+<status status="PASS" start="2026-06-16T05:08:53.448045" elapsed="0.000220"/>
+</return>
+<status status="PASS" start="2026-06-16T05:08:53.447111" elapsed="0.001383"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>RECHAZADO</value>
+<status status="NOT RUN" start="2026-06-16T05:08:53.448912" elapsed="0.000096"/>
+</return>
+<status status="NOT RUN" start="2026-06-16T05:08:53.448670" elapsed="0.000509"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:08:53.446956" elapsed="0.002367"/>
+</if>
+<msg time="2026-06-16T05:08:53.454809" level="INFO">${resultado} = ACTIVO</msg>
+<var>${resultado}</var>
+<arg>${credito}</arg>
+<arg>${costo}</arg>
+<status status="PASS" start="2026-06-16T05:08:53.425638" elapsed="0.029377"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resultado}</arg>
+<arg>${resultado_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.455562" elapsed="0.007010"/>
+</kw>
+<arg>credito=100</arg>
+<arg>costo=50</arg>
+<arg>resultado_esperado=ACTIVO</arg>
+<doc>Keyword plantilla: cada fila del CSV genera un test
+case independiente que la invoca con sus valores.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.423283" elapsed="0.039759"/>
+</kw>
+<tag>ambiente:staging</tag>
+<tag>prioridad:alta</tag>
+<status status="PASS" start="2026-06-16T05:08:53.408557" elapsed="0.055294"/>
+</test>
+<test id="s1-t2" name="Cliente sin crédito en staging" line="10">
+<kw name="Verificar Resultado De Activacion">
+<kw name="Calcular Resultado De Activacion">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T05:08:53.489711" level="INFO">${credito_num} = 0</msg>
+<var>${credito_num}</var>
+<arg>${credito}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.487290" elapsed="0.002576"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T05:08:53.492681" level="INFO">${costo_num} = 50</msg>
+<var>${costo_num}</var>
+<arg>${costo}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.490884" elapsed="0.001966"/>
+</kw>
+<if>
+<branch type="IF" condition="${credito_num} &gt;= ${costo_num}">
+<return>
+<value>ACTIVO</value>
+<status status="NOT RUN" start="2026-06-16T05:08:53.499425" elapsed="0.000104"/>
+</return>
+<status status="NOT RUN" start="2026-06-16T05:08:53.498567" elapsed="0.001150"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>RECHAZADO</value>
+<status status="PASS" start="2026-06-16T05:08:53.500072" elapsed="0.000161"/>
+</return>
+<status status="PASS" start="2026-06-16T05:08:53.499863" elapsed="0.000574"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:08:53.498404" elapsed="0.002180"/>
+</if>
+<msg time="2026-06-16T05:08:53.501140" level="INFO">${resultado} = RECHAZADO</msg>
+<var>${resultado}</var>
+<arg>${credito}</arg>
+<arg>${costo}</arg>
+<status status="PASS" start="2026-06-16T05:08:53.479137" elapsed="0.022173"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resultado}</arg>
+<arg>${resultado_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.501812" elapsed="0.009604"/>
+</kw>
+<arg>credito=0</arg>
+<arg>costo=50</arg>
+<arg>resultado_esperado=RECHAZADO</arg>
+<doc>Keyword plantilla: cada fila del CSV genera un test
+case independiente que la invoca con sus valores.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.472930" elapsed="0.038893"/>
+</kw>
+<tag>ambiente:staging</tag>
+<tag>prioridad:media</tag>
+<status status="PASS" start="2026-06-16T05:08:53.464954" elapsed="0.047449"/>
+</test>
+<test id="s1-t3" name="Cliente con crédito suficiente en produccion" line="10">
+<kw name="Verificar Resultado De Activacion">
+<kw name="Calcular Resultado De Activacion">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T05:08:53.527891" level="INFO">${credito_num} = 200</msg>
+<var>${credito_num}</var>
+<arg>${credito}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.525965" elapsed="0.002068"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T05:08:53.529871" level="INFO">${costo_num} = 150</msg>
+<var>${costo_num}</var>
+<arg>${costo}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.528486" elapsed="0.001516"/>
+</kw>
+<if>
+<branch type="IF" condition="${credito_num} &gt;= ${costo_num}">
+<return>
+<value>ACTIVO</value>
+<status status="PASS" start="2026-06-16T05:08:53.531160" elapsed="0.000143"/>
+</return>
+<status status="PASS" start="2026-06-16T05:08:53.530454" elapsed="0.001050"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>RECHAZADO</value>
+<status status="NOT RUN" start="2026-06-16T05:08:53.531784" elapsed="0.000069"/>
+</return>
+<status status="NOT RUN" start="2026-06-16T05:08:53.531626" elapsed="0.000354"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:08:53.530292" elapsed="0.001796"/>
+</if>
+<msg time="2026-06-16T05:08:53.532567" level="INFO">${resultado} = ACTIVO</msg>
+<var>${resultado}</var>
+<arg>${credito}</arg>
+<arg>${costo}</arg>
+<status status="PASS" start="2026-06-16T05:08:53.524062" elapsed="0.008624"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resultado}</arg>
+<arg>${resultado_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.533112" elapsed="0.001696"/>
+</kw>
+<arg>credito=200</arg>
+<arg>costo=150</arg>
+<arg>resultado_esperado=ACTIVO</arg>
+<doc>Keyword plantilla: cada fila del CSV genera un test
+case independiente que la invoca con sus valores.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.521710" elapsed="0.013416"/>
+</kw>
+<tag>ambiente:produccion</tag>
+<tag>prioridad:alta</tag>
+<status status="PASS" start="2026-06-16T05:08:53.513422" elapsed="0.022156"/>
+</test>
+<test id="s1-t4" name="Cliente con crédito insuficiente en produccion" line="10">
+<kw name="Verificar Resultado De Activacion">
+<kw name="Calcular Resultado De Activacion">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T05:08:53.545609" level="INFO">${credito_num} = 30</msg>
+<var>${credito_num}</var>
+<arg>${credito}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.544144" elapsed="0.001598"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T05:08:53.547693" level="INFO">${costo_num} = 50</msg>
+<var>${costo_num}</var>
+<arg>${costo}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.546259" elapsed="0.001561"/>
+</kw>
+<if>
+<branch type="IF" condition="${credito_num} &gt;= ${costo_num}">
+<return>
+<value>ACTIVO</value>
+<status status="NOT RUN" start="2026-06-16T05:08:53.548824" elapsed="0.000075"/>
+</return>
+<status status="NOT RUN" start="2026-06-16T05:08:53.548166" elapsed="0.000880"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>RECHAZADO</value>
+<status status="PASS" start="2026-06-16T05:08:53.549482" elapsed="0.000132"/>
+</return>
+<status status="PASS" start="2026-06-16T05:08:53.549309" elapsed="0.000458"/>
+</branch>
+<status status="PASS" start="2026-06-16T05:08:53.548073" elapsed="0.001807"/>
+</if>
+<msg time="2026-06-16T05:08:53.550484" level="INFO">${resultado} = RECHAZADO</msg>
+<var>${resultado}</var>
+<arg>${credito}</arg>
+<arg>${costo}</arg>
+<status status="PASS" start="2026-06-16T05:08:53.542638" elapsed="0.007991"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resultado}</arg>
+<arg>${resultado_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.551081" elapsed="0.001458"/>
+</kw>
+<arg>credito=30</arg>
+<arg>costo=50</arg>
+<arg>resultado_esperado=RECHAZADO</arg>
+<doc>Keyword plantilla: cada fila del CSV genera un test
+case independiente que la invoca con sus valores.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.540769" elapsed="0.012076"/>
+</kw>
+<tag>ambiente:produccion</tag>
+<tag>prioridad:baja</tag>
+<status status="PASS" start="2026-06-16T05:08:53.536448" elapsed="0.016839"/>
+</test>
+<doc>Práctica 9 — Sesión 5.
+Suite data-driven con DataDriver leyendo casos desde un
+CSV externo, segmentada por tags de ambiente y prioridad.</doc>
+<status status="PASS" start="2026-06-16T05:08:53.134995" elapsed="0.419638"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">ambiente:produccion</stat>
+<stat pass="2" fail="0" skip="0">ambiente:staging</stat>
+<stat pass="2" fail="0" skip="0">prioridad:alta</stat>
+<stat pass="1" fail="0" skip="0">prioridad:baja</stat>
+<stat pass="1" fail="0" skip="0">prioridad:media</stat>
+</tag>
+<suite>
+<stat name="Activacion Data Driven" id="s1" pass="4" fail="0" skip="0">Activacion Data Driven</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

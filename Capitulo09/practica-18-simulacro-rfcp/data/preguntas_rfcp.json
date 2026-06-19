@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "pregunta": "¿Cuál es la única sección obligatoria en un archivo .robot?",
+    "opciones": ["Settings", "Variables", "Test Cases", "Keywords"],
+    "respuesta_correcta": "Test Cases"
+  },
+  {
+    "id": 2,
+    "pregunta": "¿Qué librería se importa automáticamente, sin necesidad de declararla en Settings?",
+    "opciones": ["Collections", "OperatingSystem", "BuiltIn", "String"],
+    "respuesta_correcta": "BuiltIn"
+  },
+  {
+    "id": 3,
+    "pregunta": "¿Qué prefijo de variable representa una lista en Robot Framework?",
+    "opciones": ["${lista}", "@{lista}", "&{lista}", "%{lista}"],
+    "respuesta_correcta": "@{lista}"
+  },
+  {
+    "id": 4,
+    "pregunta": "¿Qué keyword permite que un test continúe ejecutándose tras un fallo, sin propagar la excepción de inmediato?",
+    "opciones": ["Run Keyword And Expect Error", "Run Keyword And Continue On Failure", "Should Be Equal", "Run Keyword If"],
+    "respuesta_correcta": "Run Keyword And Continue On Failure"
+  },
+  {
+    "id": 5,
+    "pregunta": "En BDD con Robot Framework, ¿qué hace el motor con los prefijos Given/When/Then al resolver una keyword?",
+    "opciones": ["Los usa para elegir la librería correcta", "Los ignora; son solo para legibilidad humana", "Los valida contra un esquema Gherkin", "Requieren una librería adicional"],
+    "respuesta_correcta": "Los ignora; son solo para legibilidad humana"
+  },
+  {
+    "id": 6,
+    "pregunta": "¿Qué archivo de Robot Framework NO puede contener la sección Test Cases?",
+    "opciones": ["Una suite .robot", "Un archivo .resource", "Un archivo __init__.robot", "Cualquier archivo .robot"],
+    "respuesta_correcta": "Un archivo .resource"
+  },
+  {
+    "id": 7,
+    "pregunta": "¿Cuál de estas opciones de CLI ejecuta solo los test cases que fallaron en una ejecución anterior?",
+    "opciones": ["--include", "--exclude", "--rerunfailed", "--suite"],
+    "respuesta_correcta": "--rerunfailed"
+  },
+  {
+    "id": 8,
+    "pregunta": "¿Qué certifica oficialmente la certificación RFCP?",
+    "opciones": ["El dominio de SeleniumLibrary", "El dominio del lenguaje y la plataforma central de Robot Framework", "El dominio de RequestsLibrary", "El dominio de DataDriver"],
+    "respuesta_correcta": "El dominio del lenguaje y la plataforma central de Robot Framework"
+  },
+  {
+    "id": 9,
+    "pregunta": "¿Qué herramienta combina varios output.xml en un solo reporte?",
+    "opciones": ["robot", "rebot", "robotidy", "libdoc"],
+    "respuesta_correcta": "rebot"
+  },
+  {
+    "id": 10,
+    "pregunta": "¿Qué parámetro de RequestsLibrary permite validar deliberadamente una respuesta 404 o 500 sin que se lance una excepción?",
+    "opciones": ["verify=False", "expected_status=any", "allow_redirects=True", "timeout=10"],
+    "respuesta_correcta": "expected_status=any"
+  }
+]

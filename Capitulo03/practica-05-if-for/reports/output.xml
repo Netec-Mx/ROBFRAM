@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T04:26:27.635301" rpa="false" schemaversion="5">
+<suite id="s1" name="Validaciones Planes" source="/home/csotelo/Development/formativa/robfram-code/sesion-03/practica-05-if-for/tests/validaciones_planes.robot">
+<test id="s1-t1" name="TC-01 Clasificar el consumo de cada cliente por rango" line="13">
+<for flavor="IN">
+<iter>
+<kw name="Clasificar Consumo">
+<if>
+<branch type="IF" condition="${consumo} &lt; 50">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T04:26:27.939047" level="INFO">45GB -&gt; Consumo bajo</msg>
+<arg>${consumo}GB -&gt; Consumo bajo</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.937652" elapsed="0.001655"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:26:27.927899" elapsed="0.011622"/>
+</branch>
+<branch type="ELSE IF" condition="${consumo} &lt; 100">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo medio</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.940206" elapsed="0.000124"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.939695" elapsed="0.000811"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo alto</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.941001" elapsed="0.000119"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.940625" elapsed="0.000657"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:26:27.927785" elapsed="0.013604"/>
+</if>
+<arg>${consumo}</arg>
+<doc>Clasifica un consumo en GB como bajo, medio o alto.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.926358" elapsed="0.015320"/>
+</kw>
+<var name="${consumo}">45</var>
+<status status="PASS" start="2026-06-16T04:26:27.924446" elapsed="0.017386"/>
+</iter>
+<iter>
+<kw name="Clasificar Consumo">
+<if>
+<branch type="IF" condition="${consumo} &lt; 50">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo bajo</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.945638" elapsed="0.000135"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.944720" elapsed="0.001225"/>
+</branch>
+<branch type="ELSE IF" condition="${consumo} &lt; 100">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T04:26:27.948107" level="INFO">72GB -&gt; Consumo medio</msg>
+<arg>${consumo}GB -&gt; Consumo medio</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.946900" elapsed="0.001436"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:26:27.946062" elapsed="0.002439"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo alto</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.949010" elapsed="0.000091"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.948619" elapsed="0.000625"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:26:27.944624" elapsed="0.004716"/>
+</if>
+<arg>${consumo}</arg>
+<doc>Clasifica un consumo en GB como bajo, medio o alto.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.943483" elapsed="0.006104"/>
+</kw>
+<var name="${consumo}">72</var>
+<status status="PASS" start="2026-06-16T04:26:27.942357" elapsed="0.007370"/>
+</iter>
+<iter>
+<kw name="Clasificar Consumo">
+<if>
+<branch type="IF" condition="${consumo} &lt; 50">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo bajo</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.952735" elapsed="0.000096"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.952025" elapsed="0.000986"/>
+</branch>
+<branch type="ELSE IF" condition="${consumo} &lt; 100">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo medio</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.953957" elapsed="0.000101"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.953137" elapsed="0.001123"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T04:26:27.955911" level="INFO">101GB -&gt; Consumo alto</msg>
+<arg>${consumo}GB -&gt; Consumo alto</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.954754" elapsed="0.001370"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:26:27.954377" elapsed="0.001907"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:26:27.951944" elapsed="0.004442"/>
+</if>
+<arg>${consumo}</arg>
+<doc>Clasifica un consumo en GB como bajo, medio o alto.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.950978" elapsed="0.005633"/>
+</kw>
+<var name="${consumo}">101</var>
+<status status="PASS" start="2026-06-16T04:26:27.950111" elapsed="0.006638"/>
+</iter>
+<iter>
+<kw name="Clasificar Consumo">
+<if>
+<branch type="IF" condition="${consumo} &lt; 50">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T04:26:27.961005" level="INFO">15GB -&gt; Consumo bajo</msg>
+<arg>${consumo}GB -&gt; Consumo bajo</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.959749" elapsed="0.001468"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:26:27.959040" elapsed="0.002342"/>
+</branch>
+<branch type="ELSE IF" condition="${consumo} &lt; 100">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo medio</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.961952" elapsed="0.000153"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.961495" elapsed="0.000828"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo alto</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.962942" elapsed="0.000141"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.962461" elapsed="0.000815"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:26:27.958955" elapsed="0.004448"/>
+</if>
+<arg>${consumo}</arg>
+<doc>Clasifica un consumo en GB como bajo, medio o alto.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.957920" elapsed="0.005782"/>
+</kw>
+<var name="${consumo}">15</var>
+<status status="PASS" start="2026-06-16T04:26:27.957119" elapsed="0.006778"/>
+</iter>
+<iter>
+<kw name="Clasificar Consumo">
+<if>
+<branch type="IF" condition="${consumo} &lt; 50">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo bajo</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.972859" elapsed="0.000160"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.971644" elapsed="0.001556"/>
+</branch>
+<branch type="ELSE IF" condition="${consumo} &lt; 100">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T04:26:27.975603" level="INFO">99GB -&gt; Consumo medio</msg>
+<arg>${consumo}GB -&gt; Consumo medio</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.974103" elapsed="0.001709"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:26:27.973316" elapsed="0.002658"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>${consumo}GB -&gt; Consumo alto</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:27.976484" elapsed="0.000092"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:27.976086" elapsed="0.000632"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:26:27.971525" elapsed="0.005297"/>
+</if>
+<arg>${consumo}</arg>
+<doc>Clasifica un consumo en GB como bajo, medio o alto.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.965338" elapsed="0.011735"/>
+</kw>
+<var name="${consumo}">99</var>
+<status status="PASS" start="2026-06-16T04:26:27.964365" elapsed="0.013254"/>
+</iter>
+<var>${consumo}</var>
+<value>@{CONSUMOS_GB}</value>
+<status status="PASS" start="2026-06-16T04:26:27.923622" elapsed="0.054188"/>
+</for>
+<doc>Recorre ['45', '72', '101', '15', '99'] con FOR y clasifica cada
+valor con IF / ELSE IF / ELSE.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.921292" elapsed="0.057565"/>
+</test>
+<test id="s1-t2" name="TC-02 Detectar clientes que exceden su límite de plan" line="21">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T04:26:27.988611" level="INFO">${cliente_1} = {'nombre': 'Ana', 'limite': 50, 'consumo': 45}</msg>
+<var>${cliente_1}</var>
+<arg>nombre=Ana</arg>
+<arg>limite=${50}</arg>
+<arg>consumo=${45}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.982780" elapsed="0.005962"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T04:26:27.993456" level="INFO">${cliente_2} = {'nombre': 'Luis', 'limite': 50, 'consumo': 72}</msg>
+<var>${cliente_2}</var>
+<arg>nombre=Luis</arg>
+<arg>limite=${50}</arg>
+<arg>consumo=${72}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.989274" elapsed="0.004435"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-06-16T04:26:27.995942" level="INFO">@{clientes} = [ {'nombre': 'Ana', 'limite': 50, 'consumo': 45} | {'nombre': 'Luis', 'limite': 50, 'consumo': 72} ]</msg>
+<var>@{clientes}</var>
+<arg>${cliente_1}</arg>
+<arg>${cliente_2}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.994249" elapsed="0.001822"/>
+</kw>
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="${cliente}[consumo] &gt; ${cliente}[limite]">
+<kw name="Log" owner="BuiltIn">
+<arg>${cliente}[nombre] excede su límite de ${cliente}[limite]GB</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:28.011445" elapsed="0.000158"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:28.005199" elapsed="0.006610"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T04:26:28.018349" level="INFO">Ana está dentro de su límite</msg>
+<arg>${cliente}[nombre] está dentro de su límite</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:26:28.012402" elapsed="0.006229"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:26:28.011943" elapsed="0.006861"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:26:28.005105" elapsed="0.013804"/>
+</if>
+<var name="${cliente}">{'nombre': 'Ana', 'limite': 50, 'consumo': 45}</var>
+<status status="PASS" start="2026-06-16T04:26:28.004903" elapsed="0.014131"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="${cliente}[consumo] &gt; ${cliente}[limite]">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T04:26:28.023241" level="WARN">Luis excede su límite de 50GB</msg>
+<arg>${cliente}[nombre] excede su límite de ${cliente}[limite]GB</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:26:28.021239" elapsed="0.002651"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:26:28.020148" elapsed="0.004460"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>${cliente}[nombre] está dentro de su límite</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-06-16T04:26:28.025331" elapsed="0.000157"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:26:28.024809" elapsed="0.000881"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:26:28.020033" elapsed="0.005789"/>
+</if>
+<var name="${cliente}">{'nombre': 'Luis', 'limite': 50, 'consumo': 72}</var>
+<status status="PASS" start="2026-06-16T04:26:28.019803" elapsed="0.006178"/>
+</iter>
+<var>${cliente}</var>
+<value>@{clientes}</value>
+<status status="PASS" start="2026-06-16T04:26:27.996355" elapsed="0.029863"/>
+</for>
+<doc>Recorre una lista de diccionarios cliente
+(nombre/límite/consumo) y marca cuáles exceden
+su límite contratado.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.980531" elapsed="0.046312"/>
+</test>
+<doc>Práctica 5 — Sesión 3.
+Tests con lógica condicional (IF/ELSE IF/ELSE) y bucles
+(FOR) sobre datos de consumo de clientes telecom.</doc>
+<status status="PASS" start="2026-06-16T04:26:27.642890" elapsed="0.396047"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Validaciones Planes" id="s1" pass="2" fail="0" skip="0">Validaciones Planes</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-06-16T04:26:28.023241" level="WARN">Luis excede su límite de 50GB</msg>
+</errors>
+</robot>

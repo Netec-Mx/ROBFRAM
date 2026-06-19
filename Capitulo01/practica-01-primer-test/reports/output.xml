@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T03:39:45.277512" rpa="false" schemaversion="5">
+<suite id="s1" name="Primera Suite" source="/home/csotelo/Development/formativa/robfram-code/sesion-01/practica-01-primer-test/tests/primera_suite.robot">
+<test id="s1-t1" name="TC-01 Verificar que el curso tiene nombre asignado" line="21">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T03:39:45.856471" level="INFO">Iniciando TC-01</msg>
+<arg>Iniciando TC-01</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.854988" elapsed="0.001856"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-06-16T03:39:45.886383" level="INFO">Length is 17.</msg>
+<arg>${NOMBRE_CURSO}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.857482" elapsed="0.029258"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T03:39:45.888590" level="INFO">Curso: Robot Framework 7</msg>
+<arg>Curso: ${NOMBRE_CURSO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.887260" elapsed="0.001619"/>
+</kw>
+<doc>Confirma que la variable de suite Robot Framework 7 no está vacía.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.824866" elapsed="0.064598"/>
+</test>
+<test id="s1-t2" name="TC-02 Verificar que la misma herramienta cubre pruebas y RPA" line="27">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${HERRAMIENTA_PRUEBAS}</arg>
+<arg>${HERRAMIENTA_RPA}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.909012" elapsed="0.009939"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T03:39:45.920862" level="INFO">Ambas variables apuntan a: Robot Framework</msg>
+<arg>Ambas variables apuntan a: ${HERRAMIENTA_PRUEBAS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.919508" elapsed="0.001608"/>
+</kw>
+<doc>Robot Framework es una de las pocas herramientas que cubre
+tanto automatización de pruebas como RPA.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.906799" elapsed="0.014869"/>
+</test>
+<test id="s1-t3" name="TC-03 Verificar que Robot Framework abarca los tres dominios esperados" line="33">
+<kw name="Verificar Dominio En Lista">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${DOMINIOS_RF}</arg>
+<arg>${dominio}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.938991" elapsed="0.004579"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T03:39:45.947757" level="INFO">Dominio confirmado: Automatización de Pruebas</msg>
+<arg>Dominio confirmado: ${dominio}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.946408" elapsed="0.004056"/>
+</kw>
+<arg>Automatización de Pruebas</arg>
+<doc>Verifica que un dominio dado existe en ['Automatización de Pruebas', 'RPA', 'Automatización Web'].</doc>
+<status status="PASS" start="2026-06-16T03:39:45.933286" elapsed="0.017537"/>
+</kw>
+<kw name="Verificar Dominio En Lista">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${DOMINIOS_RF}</arg>
+<arg>${dominio}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.963467" elapsed="0.001640"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T03:39:45.977317" level="INFO">Dominio confirmado: RPA</msg>
+<arg>Dominio confirmado: ${dominio}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.965666" elapsed="0.011900"/>
+</kw>
+<arg>RPA</arg>
+<doc>Verifica que un dominio dado existe en ['Automatización de Pruebas', 'RPA', 'Automatización Web'].</doc>
+<status status="PASS" start="2026-06-16T03:39:45.951990" elapsed="0.025903"/>
+</kw>
+<kw name="Verificar Dominio En Lista">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${DOMINIOS_RF}</arg>
+<arg>${dominio}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.985619" elapsed="0.001713"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T03:39:45.989206" level="INFO">Dominio confirmado: Automatización Web</msg>
+<arg>Dominio confirmado: ${dominio}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.987848" elapsed="0.001652"/>
+</kw>
+<arg>Automatización Web</arg>
+<doc>Verifica que un dominio dado existe en ['Automatización de Pruebas', 'RPA', 'Automatización Web'].</doc>
+<status status="PASS" start="2026-06-16T03:39:45.981709" elapsed="0.008174"/>
+</kw>
+<doc>Recorre la lista ['Automatización de Pruebas', 'RPA', 'Automatización Web'] y confirma su contenido.</doc>
+<status status="PASS" start="2026-06-16T03:39:45.931057" elapsed="0.063488"/>
+</test>
+<doc>Práctica 1 — Sesión 1.
+Primera suite: cuatro secciones de un archivo .robot.</doc>
+<meta name="Curso">Robot Framework y Automatización de Pruebas</meta>
+<meta name="Sesión">1</meta>
+<status status="PASS" start="2026-06-16T03:39:45.293719" elapsed="0.702434"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Primera Suite" id="s1" pass="3" fail="0" skip="0">Primera Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

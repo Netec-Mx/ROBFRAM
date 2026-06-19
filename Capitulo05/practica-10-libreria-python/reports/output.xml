@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:09:03.175065" rpa="false" schemaversion="5">
+<suite id="s1" name="Validador Telecom Suite" source="/home/csotelo/Development/formativa/robfram-code/sesion-05/practica-10-libreria-python/tests/validador_telecom_suite.robot">
+<test id="s1-t1" name="Validar número telefónico guatemalteco correcto" line="9">
+<kw name="Validar Numero De Telefono Guatemalteco" owner="ValidadorTelecom">
+<msg time="2026-06-16T05:09:03.533620" level="INFO">${es_valido} = True</msg>
+<var>${es_valido}</var>
+<arg>50212345</arg>
+<doc>Valida que un número telefónico guatemalteco tenga 8 dígitos y
+empiece con un dígito entre 2 y 7 (rangos asignados por la
+Superintendencia de Telecomunicaciones de Guatemala).</doc>
+<status status="PASS" start="2026-06-16T05:09:03.532416" elapsed="0.001411"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${es_valido}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-06-16T05:09:03.534562" elapsed="0.001929"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:09:03.526422" elapsed="0.011998"/>
+</test>
+<test id="s1-t2" name="Rechazar número telefónico con rango inválido" line="13">
+<kw name="Validar Numero De Telefono Guatemalteco" owner="ValidadorTelecom">
+<msg time="2026-06-16T05:09:03.543083" level="INFO">${es_valido} = False</msg>
+<var>${es_valido}</var>
+<arg>80123456</arg>
+<doc>Valida que un número telefónico guatemalteco tenga 8 dígitos y
+empiece con un dígito entre 2 y 7 (rangos asignados por la
+Superintendencia de Telecomunicaciones de Guatemala).</doc>
+<status status="PASS" start="2026-06-16T05:09:03.542242" elapsed="0.001006"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${es_valido}</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2026-06-16T05:09:03.543768" elapsed="0.001662"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:09:03.540500" elapsed="0.005503"/>
+</test>
+<test id="s1-t3" name="Calcular costo total de un plan con IVA por defecto" line="17">
+<kw name="Calcular Costo Total Del Plan" owner="ValidadorTelecom">
+<msg time="2026-06-16T05:09:03.549789" level="INFO">${total} = 112.0</msg>
+<var>${total}</var>
+<arg>100</arg>
+<tag>facturacion</tag>
+<doc>Calcula el costo total de un plan agregando el impuesto.</doc>
+<status status="PASS" start="2026-06-16T05:09:03.548881" elapsed="0.001065"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:09:03.552377" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${total}</arg>
+<arg>112.0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:09:03.550495" elapsed="0.002223"/>
+</kw>
+<status status="PASS" start="2026-06-16T05:09:03.547127" elapsed="0.006095"/>
+</test>
+<test id="s1-t4" name="Calcular costo total de un plan con impuesto personalizado" line="21">
+<kw name="Calcular Costo Total Del Plan" owner="ValidadorTelecom">
+<msg time="2026-06-16T05:09:03.560891" level="INFO">${total} = 110.0</msg>
+<var>${total}</var>
+<arg>100</arg>
+<arg>impuesto_porcentaje=10</arg>
+<tag>facturacion</tag>
+<doc>Calcula el costo total de un plan agregando el impuesto.</doc>
+<status status="PASS" start="2026-06-16T05:09:03.555840" elapsed="0.005216"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:09:03.563072" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${total}</arg>
+<arg>110.0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:09:03.561651" elapsed="0.001703"/>
+</kw>
+<tag>facturacion</tag>
+<status status="PASS" start="2026-06-16T05:09:03.554103" elapsed="0.009747"/>
+</test>
+<doc>Práctica 10 — Sesión 5.
+Integra la librería Python ValidadorTelecom como keywords
+de Robot Framework.</doc>
+<status status="PASS" start="2026-06-16T05:09:03.179219" elapsed="0.386262"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">facturacion</stat>
+</tag>
+<suite>
+<stat name="Validador Telecom Suite" id="s1" pass="4" fail="0" skip="0">Validador Telecom Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

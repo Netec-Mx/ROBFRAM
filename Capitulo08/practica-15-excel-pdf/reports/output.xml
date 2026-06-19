@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:47:23.836665" rpa="false" schemaversion="5">
+<suite id="s1" name="Proceso Rpa Clientes" source="/home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/tests/proceso_rpa_clientes.robot">
+<test id="s1-t1" name="Proceso RPA completo: leer, transformar y generar reporte" line="15">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:47:25.709972" level="INFO">ETAPA 1/3: Leyendo clientes desde /home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/tests/../data/clientes.xlsx</msg>
+<arg>ETAPA 1/3: Leyendo clientes desde ${ARCHIVO_ENTRADA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.708105" elapsed="0.002323"/>
+</kw>
+<kw name="Leer Clientes Excel" owner="procesar_clientes">
+<msg time="2026-06-16T05:47:25.739973" level="INFO">@{clientes} = [ Cliente(nombre='Ana Pérez', plan='Premium', consumo_gb=85, costo_base=150, costo_total=0.0, clasificacion_consumo='') | Cliente(nombre='Luis Gómez', plan='Básico', consumo_gb=35, costo_base=80, cost...</msg>
+<var>@{clientes}</var>
+<arg>${ARCHIVO_ENTRADA}</arg>
+<doc>Lee la hoja 'Clientes' de un Excel y devuelve una lista de Cliente.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.711140" elapsed="0.029068"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:47:25.744179" level="INFO">ETAPA 1/3 completada: 4 clientes leídos</msg>
+<arg>ETAPA 1/3 completada: ${{len($clientes)}} clientes leídos</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.740878" elapsed="0.003580"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:47:25.746255" level="INFO">ETAPA 2/3: Transformando datos (IVA + clasificación de consumo)</msg>
+<arg>ETAPA 2/3: Transformando datos (IVA + clasificación de consumo)</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.745029" elapsed="0.001510"/>
+</kw>
+<kw name="Transformar Clientes" owner="procesar_clientes">
+<msg time="2026-06-16T05:47:25.749600" level="INFO">@{clientes_transformados} = [ Cliente(nombre='Ana Pérez', plan='Premium', consumo_gb=85, costo_base=150, costo_total=168.0, clasificacion_consumo='medio') | Cliente(nombre='Luis Gómez', plan='Básico', consumo_gb=35, costo_base=8...</msg>
+<var>@{clientes_transformados}</var>
+<arg>${clientes}</arg>
+<doc>Calcula el costo total (con IVA) y clasifica el consumo de cada
+cliente. Devuelve una nueva lista; no muta la lista recibida.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.747113" elapsed="0.002701"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:47:25.751810" level="INFO">ETAPA 2/3 completada</msg>
+<arg>ETAPA 2/3 completada</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.750473" elapsed="0.001627"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:47:25.754067" level="INFO">ETAPA 3/3: Generando reporte PDF en /home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/tests/../reportes/reporte_clientes.pdf</msg>
+<arg>ETAPA 3/3: Generando reporte PDF en ${ARCHIVO_SALIDA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.752641" elapsed="0.001695"/>
+</kw>
+<kw name="Generar Reporte Pdf" owner="procesar_clientes">
+<msg time="2026-06-16T05:47:25.769253" level="INFO">${ruta_generada} = /home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/tests/../reportes/reporte_clientes.pdf</msg>
+<var>${ruta_generada}</var>
+<arg>${clientes_transformados}</arg>
+<arg>${ARCHIVO_SALIDA}</arg>
+<doc>Genera un reporte PDF tabular con los clientes transformados.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.754792" elapsed="0.014628"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T05:47:25.771279" level="INFO">ETAPA 3/3 completada: reporte en /home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/tests/../reportes/reporte_clientes.pdf</msg>
+<arg>ETAPA 3/3 completada: reporte en ${ruta_generada}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.770014" elapsed="0.001479"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2026-06-16T05:47:25.772619" level="INFO" html="true">File '&lt;a href="file:///home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/reportes/reporte_clientes.pdf"&gt;/home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/reportes/reporte_clientes.pdf&lt;/a&gt;' exists.</msg>
+<arg>${ARCHIVO_SALIDA}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.771931" elapsed="0.000945"/>
+</kw>
+<kw name="Get File Size" owner="OperatingSystem">
+<msg time="2026-06-16T05:47:25.773983" level="INFO" html="true">Size of file '&lt;a href="file:///home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/reportes/reporte_clientes.pdf"&gt;/home/csotelo/Development/formativa/robfram-code/sesion-08/practica-15-excel-pdf/reportes/reporte_clientes.pdf&lt;/a&gt;' is 1524 bytes.</msg>
+<msg time="2026-06-16T05:47:25.774393" level="INFO">${tamano} = 1524</msg>
+<var>${tamano}</var>
+<arg>${ARCHIVO_SALIDA}</arg>
+<doc>Returns and logs file size as an integer in bytes.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.773315" elapsed="0.001186"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${tamano} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.774952" elapsed="0.005773"/>
+</kw>
+<doc>Ejecuta el proceso de punta a punta y verifica el
+resultado de cada etapa.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.703313" elapsed="0.077954"/>
+</test>
+<test id="s1-t2" name="Clasificar consumo de un cliente individual" line="34">
+<kw name="Clasificar Consumo" owner="procesar_clientes">
+<msg time="2026-06-16T05:47:25.785579" level="INFO">${clasificacion} = medio</msg>
+<var>${clasificacion}</var>
+<arg>${85}</arg>
+<doc>Clasifica el consumo en GB como bajo, medio o alto.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.783843" elapsed="0.001858"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${clasificacion}</arg>
+<arg>medio</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.786271" elapsed="0.001680"/>
+</kw>
+<doc>Verifica la keyword de clasificación de forma aislada.</doc>
+<status status="PASS" start="2026-06-16T05:47:25.782138" elapsed="0.006395"/>
+</test>
+<doc>Práctica 15 — Sesión 8.
+Proceso RPA: lee clientes desde Excel, transforma los
+datos y genera un reporte PDF, con logging de cada etapa.</doc>
+<status status="PASS" start="2026-06-16T05:47:23.841434" elapsed="1.948901"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Proceso Rpa Clientes" id="s1" pass="2" fail="0" skip="0">Proceso Rpa Clientes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

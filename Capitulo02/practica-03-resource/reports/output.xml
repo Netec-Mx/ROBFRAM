@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T04:20:23.391667" rpa="false" schemaversion="5">
+<suite id="s1" name="Gestion Clientes" source="/home/csotelo/Development/formativa/robfram-code/sesion-02/practica-03-resource/tests/gestion_clientes.robot">
+<test id="s1-t1" name="TC-01 Crear cliente con plan básico" line="9">
+<kw name="Crear Cliente" owner="clientes_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T04:20:23.777865" level="INFO">${cliente} = {'nombre': 'Ana Pérez', 'plan': 'Básico'}</msg>
+<var>${cliente}</var>
+<arg>nombre=${nombre}</arg>
+<arg>plan=${plan}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.771894" elapsed="0.006241"/>
+</kw>
+<return>
+<value>${cliente}</value>
+<status status="PASS" start="2026-06-16T04:20:23.779083" elapsed="0.000316"/>
+</return>
+<msg time="2026-06-16T04:20:23.780461" level="INFO">${cliente} = {'nombre': 'Ana Pérez', 'plan': 'Básico'}</msg>
+<var>${cliente}</var>
+<arg>Ana Pérez</arg>
+<arg>${PLAN_BASICO}</arg>
+<doc>Crea un diccionario que representa un cliente con
+su nombre y el plan contratado.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.768883" elapsed="0.011730"/>
+</kw>
+<kw name="Validar Plan Asignado" owner="clientes_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cliente}[plan]</arg>
+<arg>${plan_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.784328" elapsed="0.001916"/>
+</kw>
+<arg>${cliente}</arg>
+<arg>${PLAN_BASICO}</arg>
+<doc>Verifica que el plan de un cliente coincide con el
+plan esperado.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.781334" elapsed="0.005297"/>
+</kw>
+<doc>Verifica que un cliente nuevo queda con el plan
+Básico cuando así se solicita.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.765688" elapsed="0.021450"/>
+</test>
+<test id="s1-t2" name="TC-02 Crear cliente con plan premium" line="15">
+<kw name="Crear Cliente" owner="clientes_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T04:20:23.794386" level="INFO">${cliente} = {'nombre': 'Luis Gómez', 'plan': 'Premium'}</msg>
+<var>${cliente}</var>
+<arg>nombre=${nombre}</arg>
+<arg>plan=${plan}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.792414" elapsed="0.002118"/>
+</kw>
+<return>
+<value>${cliente}</value>
+<status status="PASS" start="2026-06-16T04:20:23.794829" elapsed="0.000208"/>
+</return>
+<msg time="2026-06-16T04:20:23.795869" level="INFO">${cliente} = {'nombre': 'Luis Gómez', 'plan': 'Premium'}</msg>
+<var>${cliente}</var>
+<arg>Luis Gómez</arg>
+<arg>${PLAN_PREMIUM}</arg>
+<doc>Crea un diccionario que representa un cliente con
+su nombre y el plan contratado.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.790831" elapsed="0.005208"/>
+</kw>
+<kw name="Validar Plan Asignado" owner="clientes_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cliente}[plan]</arg>
+<arg>${plan_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.799013" elapsed="0.001905"/>
+</kw>
+<arg>${cliente}</arg>
+<arg>${PLAN_PREMIUM}</arg>
+<doc>Verifica que el plan de un cliente coincide con el
+plan esperado.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.796816" elapsed="0.004500"/>
+</kw>
+<doc>Verifica que un cliente nuevo queda con el plan
+Premium cuando así se solicita.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.788230" elapsed="0.013645"/>
+</test>
+<test id="s1-t3" name="TC-03 Dos clientes con planes distintos no se confunden entre sí" line="21">
+<kw name="Crear Cliente" owner="clientes_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T04:20:23.813524" level="INFO">${cliente} = {'nombre': 'María Díaz', 'plan': 'Básico'}</msg>
+<var>${cliente}</var>
+<arg>nombre=${nombre}</arg>
+<arg>plan=${plan}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.811064" elapsed="0.002635"/>
+</kw>
+<return>
+<value>${cliente}</value>
+<status status="PASS" start="2026-06-16T04:20:23.815080" elapsed="0.000286"/>
+</return>
+<msg time="2026-06-16T04:20:23.816314" level="INFO">${cliente_a} = {'nombre': 'María Díaz', 'plan': 'Básico'}</msg>
+<var>${cliente_a}</var>
+<arg>María Díaz</arg>
+<arg>${PLAN_BASICO}</arg>
+<doc>Crea un diccionario que representa un cliente con
+su nombre y el plan contratado.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.805525" elapsed="0.010984"/>
+</kw>
+<kw name="Crear Cliente" owner="clientes_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T04:20:23.825915" level="INFO">${cliente} = {'nombre': 'Carlos Ruiz', 'plan': 'Premium'}</msg>
+<var>${cliente}</var>
+<arg>nombre=${nombre}</arg>
+<arg>plan=${plan}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.824026" elapsed="0.002932"/>
+</kw>
+<return>
+<value>${cliente}</value>
+<status status="PASS" start="2026-06-16T04:20:23.827297" elapsed="0.000180"/>
+</return>
+<msg time="2026-06-16T04:20:23.828104" level="INFO">${cliente_b} = {'nombre': 'Carlos Ruiz', 'plan': 'Premium'}</msg>
+<var>${cliente_b}</var>
+<arg>Carlos Ruiz</arg>
+<arg>${PLAN_PREMIUM}</arg>
+<doc>Crea un diccionario que representa un cliente con
+su nombre y el plan contratado.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.817491" elapsed="0.010724"/>
+</kw>
+<kw name="Validar Plan Asignado" owner="clientes_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cliente}[plan]</arg>
+<arg>${plan_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.830614" elapsed="0.001754"/>
+</kw>
+<arg>${cliente_a}</arg>
+<arg>${PLAN_BASICO}</arg>
+<doc>Verifica que el plan de un cliente coincide con el
+plan esperado.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.828823" elapsed="0.003873"/>
+</kw>
+<kw name="Validar Plan Asignado" owner="clientes_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cliente}[plan]</arg>
+<arg>${plan_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.834718" elapsed="0.001577"/>
+</kw>
+<arg>${cliente_b}</arg>
+<arg>${PLAN_PREMIUM}</arg>
+<doc>Verifica que el plan de un cliente coincide con el
+plan esperado.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.833300" elapsed="0.003305"/>
+</kw>
+<doc>Confirma que las variables del Resource (PLAN_BASICO,
+PLAN_PREMIUM) no se mezclan entre instancias.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.802901" elapsed="0.034119"/>
+</test>
+<doc>Práctica 3 — Sesión 2.
+Suite que importa keywords desde un archivo Resource
+y valida datos usando variables compartidas.</doc>
+<status status="PASS" start="2026-06-16T04:20:23.396195" elapsed="0.446262"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Gestion Clientes" id="s1" pass="3" fail="0" skip="0">Gestion Clientes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

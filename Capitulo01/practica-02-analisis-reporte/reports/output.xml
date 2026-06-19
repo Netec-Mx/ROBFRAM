@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T03:43:55.620869" rpa="false" schemaversion="5">
+<suite id="s1" name="Suite Demo" source="/home/csotelo/Development/formativa/robfram-code/sesion-01/practica-02-analisis-reporte/tests/suite_demo.robot">
+<test id="s1-t1" name="TC-01 Caso que debe pasar" line="7">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${1}</arg>
+<arg>${1}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T03:43:55.803490" elapsed="0.004021"/>
+</kw>
+<doc>Verificación simple que siempre es verdadera.</doc>
+<status status="PASS" start="2026-06-16T03:43:55.799958" elapsed="0.008926"/>
+</test>
+<test id="s1-t2" name="TC-02 Caso que debe fallar a propósito" line="11">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2026-06-16T03:43:55.815816" level="FAIL">1 != 2</msg>
+<arg>${1}</arg>
+<arg>${2}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2026-06-16T03:43:55.812036" elapsed="0.004424">1 != 2</status>
+</kw>
+<doc>Falla intencional para que el reporte tenga 1 PASS y 1 FAIL.</doc>
+<tag>fallo-esperado</tag>
+<status status="FAIL" start="2026-06-16T03:43:55.809944" elapsed="0.007303">1 != 2</status>
+</test>
+<doc>Práctica 2 — Sesión 1.
+Suite con un caso PASS y uno FAIL a propósito,
+para generar un output.xml real con ambos estados y analizarlo.</doc>
+<status status="FAIL" start="2026-06-16T03:43:55.626417" elapsed="0.193037"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">fallo-esperado</stat>
+</tag>
+<suite>
+<stat name="Suite Demo" id="s1" pass="1" fail="1" skip="0">Suite Demo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

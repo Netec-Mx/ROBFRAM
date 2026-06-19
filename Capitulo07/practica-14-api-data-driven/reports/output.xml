@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:33:33.095333" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Data Driven Suite" source="/home/csotelo/Development/formativa/robfram-code/sesion-07/practica-14-api-data-driven/tests/api_data_driven_suite.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2026-06-16T05:33:33.708464" level="INFO">Creating Session using : alias=api, url=https://postman-echo.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>api</arg>
+<arg>https://postman-echo.com</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-06-16T05:33:33.707520" elapsed="0.002249"/>
+</kw>
+<test id="s1-t1" name="Servicio responde correctamente (200)" line="13">
+<kw name="Verificar Status Code Del Endpoint">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-06-16T05:33:33.950775" level="INFO">GET Request : url=https://postman-echo.com/status/200 
+ path_url=/status/200 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-06-16T05:33:33.951455" level="INFO">GET Response : url=https://postman-echo.com/status/200 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 16 Jun 2026 10:33:33 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '14', 'Connection': 'keep-alive', 'etag': 'W/"e-QlsUp1vTYvBgYHrHCBYe2n/q268"', 'vary': 'Accept-Encoding', 'x-envoy-upstream-service-time': '5', 'cf-cache-status': 'DYNAMIC', 'Set-Cookie': 'sails.sid=s%3AT9UBwJJ9CXZ5w3FHgD3NLM7o0avyKDEW.KQDkeooaqjjTDdZrcMp7AotsFkxe35aMELXkBe5iDIA; Path=/; HttpOnly, __cf_bm=f5u3MhFXdvaX3CF3x0Ou58OSOmvCP5slWxa1sLUS9FE-1781606013.8348587-1.0.1.1-74bWf6UqpIOWL_jZKcrEdRVDoOzvrDsLKp00xCcr_XWwE55BRvNuAInwLVC96lOODic2Hp6xdYfxke_6ZDrLr7iQyXhbj5tALAxO7W7Sa3eLnJWtI7fJUuVPBovN0g2j; HttpOnly; SameSite=None; Secure; Path=/; Domain=postman-echo.com; Expires=Tue, 16 Jun 2026 11:03:33 GMT, _cfuvid=wbg2aeg.CAj.81WVuYJnso12fynXpjSwE1RxJSfGMb4-1781606013.8348587-1.0.1.1-NKeqZOPYL1KHu3fYpMIjRbOH5ZwpL6GEqURE8fXEKII; HttpOnly; SameSite=None; Secure; Path=/; Domain=postman-echo.com', 'Server': 'cloudflare', 'CF-RAY': 'a0c928327d69c2d0-LIM'} 
+ body={"status":200} 
+ </msg>
+<msg time="2026-06-16T05:33:33.952170" level="INFO">${respuesta} = &lt;Response [200]&gt;</msg>
+<var>${respuesta}</var>
+<arg>api</arg>
+<arg>${endpoint}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-06-16T05:33:33.721625" elapsed="0.230745"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:33:33.956948" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${respuesta.status_code}</arg>
+<arg>${status_esperado}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:33:33.953093" elapsed="0.004303"/>
+</kw>
+<arg>endpoint=/status/200</arg>
+<arg>status_esperado=200</arg>
+<doc>expected_status=any evita que RequestsLibrary lance
+una excepción automática ante un 4xx/5xx — así
+podemos validar casos negativos sin que el GET
+"falle" antes de llegar al assert.</doc>
+<status status="PASS" start="2026-06-16T05:33:33.717801" elapsed="0.240080"/>
+</kw>
+<tag>positivo</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-06-16T05:33:33.710512" elapsed="0.248172"/>
+</test>
+<test id="s1-t2" name="Servicio de eco responde (200)" line="13">
+<kw name="Verificar Status Code Del Endpoint">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-06-16T05:33:34.081258" level="INFO">GET Request : url=https://postman-echo.com/get 
+ path_url=/get 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sails.sid=s%3AT9UBwJJ9CXZ5w3FHgD3NLM7o0avyKDEW.KQDkeooaqjjTDdZrcMp7AotsFkxe35aMELXkBe5iDIA; __cf_bm=f5u3MhFXdvaX3CF3x0Ou58OSOmvCP5slWxa1sLUS9FE-1781606013.8348587-1.0.1.1-74bWf6UqpIOWL_jZKcrEdRVDoOzvrDsLKp00xCcr_XWwE55BRvNuAInwLVC96lOODic2Hp6xdYfxke_6ZDrLr7iQyXhbj5tALAxO7W7Sa3eLnJWtI7fJUuVPBovN0g2j; _cfuvid=wbg2aeg.CAj.81WVuYJnso12fynXpjSwE1RxJSfGMb4-1781606013.8348587-1.0.1.1-NKeqZOPYL1KHu3fYpMIjRbOH5ZwpL6GEqURE8fXEKII'} 
+ body=None 
+ </msg>
+<msg time="2026-06-16T05:33:34.081703" level="INFO">GET Response : url=https://postman-echo.com/get 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 16 Jun 2026 10:33:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'etag': 'W/"277-tZpa/MSnE6jUBn8fkjxPkod5XZ4"', 'vary': 'Accept-Encoding', 'Set-Cookie': 'sails.sid=s%3Arc8KxD2K18gtyZj3WQyNnzdf7ODo4B5w.4wvpMbxWyJCYTsx2JvJYT0TkyoI8kUOg6FQ%2Bw%2Bd%2FBTA; Path=/; HttpOnly', 'x-envoy-upstream-service-time': '6', 'cf-cache-status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a0c928334d7ec2d0-LIM'} 
+ body={"args":{},"headers":{"host":"postman-echo.com","x-forwarded-proto":"https","accept-encoding":"gzip, br","user-agent":"python-requests/2.34.2","accept":"*/*","cookie":"sails.sid=s%3AT9UBwJJ9CXZ5w3FHgD3NLM7o0avyKDEW.KQDkeooaqjjTDdZrcMp7AotsFkxe35aMELXkBe5iDIA; __cf_bm=f5u3MhFXdvaX3CF3x0Ou58OSOmvCP5slWxa1sLUS9FE-1781606013.8348587-1.0.1.1-74bWf6UqpIOWL_jZKcrEdRVDoOzvrDsLKp00xCcr_XWwE55BRvNuAInwLVC96lOODic2Hp6xdYfxke_6ZDrLr7iQyXhbj5tALAxO7W7Sa3eLnJWtI7fJUuVPBovN0g2j; _cfuvid=wbg2aeg.CAj.81WVuYJnso12fynXpjSwE1RxJSfGMb4-1781606013.8348587-1.0.1.1-NKeqZOPYL1KHu3fYpMIjRbOH5ZwpL6GEqURE8fXEKII"},"url":"https://postman-echo.com/get"} 
+ </msg>
+<msg time="2026-06-16T05:33:34.082462" level="INFO">${respuesta} = &lt;Response [200]&gt;</msg>
+<var>${respuesta}</var>
+<arg>api</arg>
+<arg>${endpoint}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-06-16T05:33:33.966980" elapsed="0.115692"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:33:34.092578" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${respuesta.status_code}</arg>
+<arg>${status_esperado}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:33:34.083382" elapsed="0.009627"/>
+</kw>
+<arg>endpoint=/get</arg>
+<arg>status_esperado=200</arg>
+<doc>expected_status=any evita que RequestsLibrary lance
+una excepción automática ante un 4xx/5xx — así
+podemos validar casos negativos sin que el GET
+"falle" antes de llegar al assert.</doc>
+<status status="PASS" start="2026-06-16T05:33:33.965233" elapsed="0.128257"/>
+</kw>
+<tag>positivo</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-06-16T05:33:33.959868" elapsed="0.134388"/>
+</test>
+<test id="s1-t3" name="Endpoint inexistente devuelve 404" line="13">
+<kw name="Verificar Status Code Del Endpoint">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-06-16T05:33:34.215782" level="INFO">GET Request : url=https://postman-echo.com/status/404 
+ path_url=/status/404 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sails.sid=s%3Arc8KxD2K18gtyZj3WQyNnzdf7ODo4B5w.4wvpMbxWyJCYTsx2JvJYT0TkyoI8kUOg6FQ%2Bw%2Bd%2FBTA; __cf_bm=f5u3MhFXdvaX3CF3x0Ou58OSOmvCP5slWxa1sLUS9FE-1781606013.8348587-1.0.1.1-74bWf6UqpIOWL_jZKcrEdRVDoOzvrDsLKp00xCcr_XWwE55BRvNuAInwLVC96lOODic2Hp6xdYfxke_6ZDrLr7iQyXhbj5tALAxO7W7Sa3eLnJWtI7fJUuVPBovN0g2j; _cfuvid=wbg2aeg.CAj.81WVuYJnso12fynXpjSwE1RxJSfGMb4-1781606013.8348587-1.0.1.1-NKeqZOPYL1KHu3fYpMIjRbOH5ZwpL6GEqURE8fXEKII'} 
+ body=None 
+ </msg>
+<msg time="2026-06-16T05:33:34.216150" level="INFO">GET Response : url=https://postman-echo.com/status/404 
+ status=404, reason=Not Found 
+ headers={'Date': 'Tue, 16 Jun 2026 10:33:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '14', 'Connection': 'keep-alive', 'etag': 'W/"e-upYEWCL+q6R/++2nWHz5b76hBgo"', 'vary': 'Accept-Encoding', 'Set-Cookie': 'sails.sid=s%3A44E5ODGLPKxxsIOLNI2hGwGvw7A0jUzz.3u6D9KkXOrABICdvCMPZQr18bDuYb9ccIPzBHiqM9aU; Path=/; HttpOnly', 'x-envoy-upstream-service-time': '5', 'cf-cache-status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': 'a0c928342d93c2d0-LIM'} 
+ body={"status":404} 
+ </msg>
+<msg time="2026-06-16T05:33:34.216905" level="INFO">${respuesta} = &lt;Response [404]&gt;</msg>
+<var>${respuesta}</var>
+<arg>api</arg>
+<arg>${endpoint}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-06-16T05:33:34.102592" elapsed="0.114485"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:33:34.221368" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${respuesta.status_code}</arg>
+<arg>${status_esperado}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:33:34.217741" elapsed="0.003989"/>
+</kw>
+<arg>endpoint=/status/404</arg>
+<arg>status_esperado=404</arg>
+<doc>expected_status=any evita que RequestsLibrary lance
+una excepción automática ante un 4xx/5xx — así
+podemos validar casos negativos sin que el GET
+"falle" antes de llegar al assert.</doc>
+<status status="PASS" start="2026-06-16T05:33:34.100779" elapsed="0.121341"/>
+</kw>
+<tag>negativo</tag>
+<tag>regresion</tag>
+<status status="PASS" start="2026-06-16T05:33:34.095582" elapsed="0.127193"/>
+</test>
+<test id="s1-t4" name="Error interno del servidor devuelve 500" line="13">
+<kw name="Verificar Status Code Del Endpoint">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-06-16T05:33:34.344577" level="INFO">GET Request : url=https://postman-echo.com/status/500 
+ path_url=/status/500 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sails.sid=s%3A44E5ODGLPKxxsIOLNI2hGwGvw7A0jUzz.3u6D9KkXOrABICdvCMPZQr18bDuYb9ccIPzBHiqM9aU; __cf_bm=f5u3MhFXdvaX3CF3x0Ou58OSOmvCP5slWxa1sLUS9FE-1781606013.8348587-1.0.1.1-74bWf6UqpIOWL_jZKcrEdRVDoOzvrDsLKp00xCcr_XWwE55BRvNuAInwLVC96lOODic2Hp6xdYfxke_6ZDrLr7iQyXhbj5tALAxO7W7Sa3eLnJWtI7fJUuVPBovN0g2j; _cfuvid=wbg2aeg.CAj.81WVuYJnso12fynXpjSwE1RxJSfGMb4-1781606013.8348587-1.0.1.1-NKeqZOPYL1KHu3fYpMIjRbOH5ZwpL6GEqURE8fXEKII'} 
+ body=None 
+ </msg>
+<msg time="2026-06-16T05:33:34.344918" level="INFO">GET Response : url=https://postman-echo.com/status/500 
+ status=500, reason=Internal Server Error 
+ headers={'Date': 'Tue, 16 Jun 2026 10:33:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '14', 'Connection': 'keep-alive', 'etag': 'W/"e-DRyKmU8iz/Q1q0KRLR2p1AvGGqo"', 'vary': 'Accept-Encoding', 'Set-Cookie': 'sails.sid=s%3AdU58fKzM-RzKNmasm048vjmM7z-FaQKu.jOCHFZ8PyeKhGA7X1JtOTMz%2Fl1tTqN4TL7A3W6untlM; Path=/; HttpOnly', 'x-envoy-upstream-service-time': '5', 'cf-cache-status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': 'a0c92834fdabc2d0-LIM'} 
+ body={"status":500} 
+ </msg>
+<msg time="2026-06-16T05:33:34.345414" level="INFO">${respuesta} = &lt;Response [500]&gt;</msg>
+<var>${respuesta}</var>
+<arg>api</arg>
+<arg>${endpoint}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-06-16T05:33:34.231465" elapsed="0.114093"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-06-16T05:33:34.351165" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${respuesta.status_code}</arg>
+<arg>${status_esperado}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-06-16T05:33:34.346789" elapsed="0.007634"/>
+</kw>
+<arg>endpoint=/status/500</arg>
+<arg>status_esperado=500</arg>
+<doc>expected_status=any evita que RequestsLibrary lance
+una excepción automática ante un 4xx/5xx — así
+podemos validar casos negativos sin que el GET
+"falle" antes de llegar al assert.</doc>
+<status status="PASS" start="2026-06-16T05:33:34.229598" elapsed="0.125225"/>
+</kw>
+<tag>negativo</tag>
+<tag>regresion</tag>
+<status status="PASS" start="2026-06-16T05:33:34.223837" elapsed="0.131596"/>
+</test>
+<doc>Práctica 14 — Sesión 7.
+Suite API data-driven (DataDriver) que cubre escenarios
+positivos y negativos, segmentados por tags smoke/
+regresion.</doc>
+<status status="PASS" start="2026-06-16T05:33:33.099212" elapsed="1.260385"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">negativo</stat>
+<stat pass="2" fail="0" skip="0">positivo</stat>
+<stat pass="2" fail="0" skip="0">regresion</stat>
+<stat pass="2" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Api Data Driven Suite" id="s1" pass="4" fail="0" skip="0">Api Data Driven Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

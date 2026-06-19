@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T04:20:59.730667" rpa="false" schemaversion="5">
+<suite id="s1" name="Regresion Clientes" source="/home/csotelo/Development/formativa/robfram-code/sesion-02/practica-04-setup-teardown-tags/tests/regresion_clientes.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-06-16T04:20:59.983663" level="INFO">Iniciando suite de regresión de clientes</msg>
+<arg>Iniciando suite de regresión de clientes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:20:59.982489" elapsed="0.001445"/>
+</kw>
+<test id="s1-t1" name="TC-01 Cliente premium tiene soporte prioritario" line="13">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-06-16T04:20:59.987750" level="INFO">Preparando datos para el siguiente test</msg>
+<arg>Preparando datos para el siguiente test</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:20:59.986586" elapsed="0.001489"/>
+</kw>
+<kw name="Crear Cliente" owner="clientes_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T04:20:59.994961" level="INFO">${cliente} = {'nombre': 'Luis Gómez', 'plan': 'Premium'}</msg>
+<var>${cliente}</var>
+<arg>nombre=${nombre}</arg>
+<arg>plan=${plan}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T04:20:59.991957" elapsed="0.003178"/>
+</kw>
+<return>
+<value>${cliente}</value>
+<status status="PASS" start="2026-06-16T04:20:59.995479" elapsed="0.000242"/>
+</return>
+<msg time="2026-06-16T04:20:59.996688" level="INFO">${cliente} = {'nombre': 'Luis Gómez', 'plan': 'Premium'}</msg>
+<var>${cliente}</var>
+<arg>Luis Gómez</arg>
+<arg>${PLAN_PREMIUM}</arg>
+<doc>Crea un diccionario que representa un cliente con
+su nombre y el plan contratado.</doc>
+<status status="PASS" start="2026-06-16T04:20:59.989309" elapsed="0.007586"/>
+</kw>
+<kw name="Validar Plan Asignado" owner="clientes_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cliente}[plan]</arg>
+<arg>${plan_esperado}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:20:59.999721" elapsed="0.002624"/>
+</kw>
+<arg>${cliente}</arg>
+<arg>${PLAN_PREMIUM}</arg>
+<doc>Verifica que el plan de un cliente coincide con el
+plan esperado.</doc>
+<status status="PASS" start="2026-06-16T04:20:59.997877" elapsed="0.005056"/>
+</kw>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-06-16T04:21:00.005134" level="INFO">Limpieza posterior al test</msg>
+<arg>Limpieza posterior al test</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:21:00.003971" elapsed="0.001429"/>
+</kw>
+<doc>Caso de regresión completo, marcado para ejecución
+normal (no smoke).</doc>
+<tag>premium</tag>
+<tag>regresion</tag>
+<status status="PASS" start="2026-06-16T04:20:59.984445" elapsed="0.021186"/>
+</test>
+<test id="s1-t2" name="TC-03 El sistema de gestión de clientes responde" line="26">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-06-16T04:21:00.011507" level="INFO">Preparando datos para el siguiente test</msg>
+<arg>Preparando datos para el siguiente test</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:21:00.009230" elapsed="0.002668"/>
+</kw>
+<kw name="Crear Cliente" owner="clientes_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-06-16T04:21:00.017696" level="INFO">${cliente} = {'nombre': 'Cliente De Prueba', 'plan': 'Básico'}</msg>
+<var>${cliente}</var>
+<arg>nombre=${nombre}</arg>
+<arg>plan=${plan}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-06-16T04:21:00.014369" elapsed="0.003506"/>
+</kw>
+<return>
+<value>${cliente}</value>
+<status status="PASS" start="2026-06-16T04:21:00.018228" elapsed="0.000220"/>
+</return>
+<msg time="2026-06-16T04:21:00.019605" level="INFO">${cliente} = {'nombre': 'Cliente De Prueba', 'plan': 'Básico'}</msg>
+<var>${cliente}</var>
+<arg>Cliente De Prueba</arg>
+<arg>${PLAN_BASICO}</arg>
+<doc>Crea un diccionario que representa un cliente con
+su nombre y el plan contratado.</doc>
+<status status="PASS" start="2026-06-16T04:21:00.012793" elapsed="0.006971"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-06-16T04:21:00.022565" level="INFO">Length is 2.</msg>
+<arg>${cliente}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-06-16T04:21:00.020310" elapsed="0.002626"/>
+</kw>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-06-16T04:21:00.025171" level="INFO">Limpieza posterior al test</msg>
+<arg>Limpieza posterior al test</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:21:00.023940" elapsed="0.001579"/>
+</kw>
+<doc>Verificación rápida (smoke) de que la keyword
+principal no lanza errores inesperados.</doc>
+<tag>smoke</tag>
+<status status="PASS" start="2026-06-16T04:21:00.006791" elapsed="0.018990"/>
+</test>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-06-16T04:21:00.030424" level="INFO">Finalizando suite de regresión de clientes</msg>
+<arg>Finalizando suite de regresión de clientes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:21:00.028287" elapsed="0.002503"/>
+</kw>
+<doc>Práctica 4 — Sesión 2.
+Suite Setup/Teardown, Test Setup/Teardown y filtrado
+de tests por tags de inclusión/exclusión.</doc>
+<status status="PASS" start="2026-06-16T04:20:59.735269" elapsed="0.295818"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">premium</stat>
+<stat pass="1" fail="0" skip="0">regresion</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Regresion Clientes" id="s1" pass="2" fail="0" skip="0">Regresion Clientes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T04:27:23.390843" rpa="false" schemaversion="5">
+<suite id="s1" name="Suite Robusta" source="/home/csotelo/Development/formativa/robfram-code/sesion-03/practica-06-recuperacion-fallas/tests/suite_robusta.robot">
+<test id="s1-t1" name="TC-01 Validar varios campos sin detenerse en el primer fallo" line="9">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${1}</arg>
+<arg>${1}</arg>
+<arg>msg=Campo A</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.575412" elapsed="0.004122"/>
+</kw>
+<arg>Should Be Equal</arg>
+<arg>${1}</arg>
+<arg>${1}</arg>
+<arg>msg=Campo A</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.572969" elapsed="0.007122"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2026-06-16T04:27:23.586962" level="FAIL">Campo B (fallo intencional para la demo): 1 != 2</msg>
+<arg>${1}</arg>
+<arg>${2}</arg>
+<arg>msg=Campo B (fallo intencional para la demo)</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2026-06-16T04:27:23.582571" elapsed="0.005273">Campo B (fallo intencional para la demo): 1 != 2</status>
+</kw>
+<arg>Should Be Equal</arg>
+<arg>${1}</arg>
+<arg>${2}</arg>
+<arg>msg=Campo B (fallo intencional para la demo)</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2026-06-16T04:27:23.580794" elapsed="0.007508">Campo B (fallo intencional para la demo): 1 != 2</status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${3}</arg>
+<arg>${3}</arg>
+<arg>msg=Campo C</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.590669" elapsed="0.003897"/>
+</kw>
+<arg>Should Be Equal</arg>
+<arg>${3}</arg>
+<arg>${3}</arg>
+<arg>msg=Campo C</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.588916" elapsed="0.006005"/>
+</kw>
+<doc>Run Keyword And Continue On Failure envuelve cada
+verificación para que las siguientes se ejecuten
+aunque una falle. El test completo SÍ queda en
+FAIL al final — eso es esperado e intencional para
+esta demostración: el objetivo es ver los 3
+mensajes, no evitar el FAIL.</doc>
+<status status="FAIL" start="2026-06-16T04:27:23.567235" elapsed="0.028781">Campo B (fallo intencional para la demo): 1 != 2</status>
+</test>
+<test id="s1-t2" name="TC-02 Capturar un error esperado sin marcar el test como fallido" line="20">
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Convertir A Entero">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T04:27:23.611293" level="FAIL">ValueError: 'no-es-numero' cannot be converted to an integer: invalid literal for int() with base 10: 'no-es-numero'</msg>
+<var>${resultado}</var>
+<arg>${valor}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="FAIL" start="2026-06-16T04:27:23.604781" elapsed="0.007144">ValueError: 'no-es-numero' cannot be converted to an integer: invalid literal for int() with base 10: 'no-es-numero'</status>
+</kw>
+<return>
+<value>${resultado}</value>
+<status status="NOT RUN" start="2026-06-16T04:27:23.612296" elapsed="0.000128"/>
+</return>
+<arg>no-es-numero</arg>
+<doc>Convierte un valor a entero; lanza ValueError si
+el valor no es numérico (vía Convert To Integer).</doc>
+<status status="FAIL" start="2026-06-16T04:27:23.602986" elapsed="0.009948">ValueError: 'no-es-numero' cannot be converted to an integer: invalid literal for int() with base 10: 'no-es-numero'</status>
+</kw>
+<arg>ValueError: *</arg>
+<arg>Convertir A Entero</arg>
+<arg>no-es-numero</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.600592" elapsed="0.013220"/>
+</kw>
+<doc>Run Keyword And Expect Error confirma que una
+operación inválida lanza exactamente el error
+esperado — y el test queda en PASS si así ocurre.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.597629" elapsed="0.016787"/>
+</test>
+<test id="s1-t3" name="TC-03 Ignorar un error y decidir el flujo según el resultado" line="26">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Convertir A Entero">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-06-16T04:27:23.623534" level="FAIL">ValueError: 'abc' cannot be converted to an integer: invalid literal for int() with base 10: 'abc'</msg>
+<var>${resultado}</var>
+<arg>${valor}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="FAIL" start="2026-06-16T04:27:23.621744" elapsed="0.002256">ValueError: 'abc' cannot be converted to an integer: invalid literal for int() with base 10: 'abc'</status>
+</kw>
+<return>
+<value>${resultado}</value>
+<status status="NOT RUN" start="2026-06-16T04:27:23.624353" elapsed="0.000127"/>
+</return>
+<arg>abc</arg>
+<doc>Convierte un valor a entero; lanza ValueError si
+el valor no es numérico (vía Convert To Integer).</doc>
+<status status="FAIL" start="2026-06-16T04:27:23.620288" elapsed="0.004720">ValueError: 'abc' cannot be converted to an integer: invalid literal for int() with base 10: 'abc'</status>
+</kw>
+<msg time="2026-06-16T04:27:23.625764" level="INFO">${estado} = FAIL</msg>
+<msg time="2026-06-16T04:27:23.626082" level="INFO">${mensaje} = ValueError: 'abc' cannot be converted to an integer: invalid literal for int() with base 10: 'abc'</msg>
+<var>${estado}</var>
+<var>${mensaje}</var>
+<arg>Convertir A Entero</arg>
+<arg>abc</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.618348" elapsed="0.007917"/>
+</kw>
+<if>
+<branch type="IF" condition="'${estado}' == 'FAIL'">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-06-16T04:27:23.629751" level="INFO">Conversión falló como se esperaba: ValueError: 'abc' cannot be converted to an integer: invalid literal for int() with base 10: 'abc'</msg>
+<arg>Conversión falló como se esperaba: ${mensaje}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.628215" elapsed="0.001871"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:27:23.627013" elapsed="0.003370"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>Se esperaba que la conversión fallara y no fue así</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2026-06-16T04:27:23.631122" elapsed="0.000157"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:27:23.630615" elapsed="0.000868"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:27:23.626615" elapsed="0.005006"/>
+</if>
+<doc>Run Keyword And Ignore Error captura el estado
+(PASS/FAIL) y el mensaje sin propagar la excepción,
+permitiendo decidir manualmente cómo continuar.</doc>
+<status status="PASS" start="2026-06-16T04:27:23.615542" elapsed="0.016595"/>
+</test>
+<doc>Práctica 6 — Sesión 3.
+Suite que demuestra tres patrones de manejo de fallas:
+Continue On Failure, Run Keyword And Expect Error y
+Run Keyword And Ignore Error.</doc>
+<status status="FAIL" start="2026-06-16T04:27:23.395587" elapsed="0.238329"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Suite Robusta" id="s1" pass="2" fail="1" skip="0">Suite Robusta</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

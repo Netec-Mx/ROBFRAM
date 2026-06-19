@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T05:18:04.013925" rpa="false" schemaversion="5">
+<suite id="s1" name="Login E2E" source="/home/csotelo/Development/formativa/robfram-code/sesion-06/practica-11-login-e2e/tests/login_e2e.robot">
+<test id="s1-t1" name="TC-01 Iniciar sesión con credenciales válidas" line="23">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-06-16T05:18:05.452654" level="INFO">Opening browser 'headlesschrome' to base url 'https://the-internet.herokuapp.com/login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>headlesschrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:18:05.451313" elapsed="4.478275"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:09.932831" level="INFO">Opening url 'https://the-internet.herokuapp.com/login'</msg>
+<arg>${URL_LOGIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:18:09.931619" elapsed="0.351982"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_USUARIO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:18:10.285231" elapsed="0.099542"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:10.386735" level="INFO">Typing text 'tomsmith' into text field 'id:username'.</msg>
+<arg>${CAMPO_USUARIO}</arg>
+<arg>${USUARIO_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:10.385409" elapsed="0.489927"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:10.877714" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-06-16T05:18:11.064254" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_PASSWORD}</arg>
+<arg>${PASSWORD_VALIDO}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:10.876072" elapsed="0.505518"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:11.383689" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${BOTON_INGRESAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:11.382277" elapsed="5.277232"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/secure</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:18:16.660195" elapsed="0.053801"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAJE_FLASH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:18:16.714643" elapsed="0.084590"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:16.871190" level="INFO">Element 'css:#flash' contains text 'You logged into a secure area'.</msg>
+<arg>${MENSAJE_FLASH}</arg>
+<arg>You logged into a secure area</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:18:16.799872" elapsed="0.071626"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-16T05:18:16.872519" elapsed="0.162403"/>
+</kw>
+<doc>Verifica el flujo completo de autenticación exitosa.</doc>
+<status status="PASS" start="2026-06-16T05:18:05.444751" elapsed="11.590540"/>
+</test>
+<test id="s1-t2" name="TC-02 Rechazar credenciales inválidas con captura de pantalla en fallo" line="34">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-06-16T05:18:17.040417" level="INFO">Opening browser 'headlesschrome' to base url 'https://the-internet.herokuapp.com/login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>headlesschrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:18:17.039281" elapsed="4.531533"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:21.573708" level="INFO">Opening url 'https://the-internet.herokuapp.com/login'</msg>
+<arg>${URL_LOGIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:18:21.572479" elapsed="0.348022"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:21.926066" level="INFO">Typing text 'usuario_invalido' into text field 'id:username'.</msg>
+<arg>${CAMPO_USUARIO}</arg>
+<arg>usuario_invalido</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:21.922847" elapsed="0.475183"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:22.401181" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-06-16T05:18:22.532343" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_PASSWORD}</arg>
+<arg>clave_invalida</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:22.399808" elapsed="0.349378"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:22.756288" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${BOTON_INGRESAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:22.749999" elapsed="1.037379"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAJE_FLASH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:18:23.788381" elapsed="0.090081"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:23.955094" level="INFO">Element 'css:#flash' contains text 'Your username is invalid!'.</msg>
+<arg>${MENSAJE_FLASH}</arg>
+<arg>Your username is invalid!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:18:23.879096" elapsed="0.076335"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-06-16T05:18:23.965920" elapsed="0.001490"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-16T05:18:23.968046" elapsed="0.137056"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>AND</arg>
+<arg>Close All Browsers</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-16T05:18:23.956650" elapsed="0.148926"/>
+</kw>
+<doc>Verifica el mensaje de error; el Teardown solo
+captura pantalla SI el test falla (no en cada caso).</doc>
+<status status="PASS" start="2026-06-16T05:18:17.036962" elapsed="7.069045"/>
+</test>
+<test id="s1-t3" name="TC-03 Navegar al área segura y cerrar sesión" line="47">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-06-16T05:18:24.113058" level="INFO">Opening browser 'headlesschrome' to base url 'https://the-internet.herokuapp.com/login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>headlesschrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:18:24.112012" elapsed="4.035253"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:28.150687" level="INFO">Opening url 'https://the-internet.herokuapp.com/login'</msg>
+<arg>${URL_LOGIN}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-16T05:18:28.148904" elapsed="0.404843"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:28.556459" level="INFO">Typing text 'tomsmith' into text field 'id:username'.</msg>
+<arg>${CAMPO_USUARIO}</arg>
+<arg>${USUARIO_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:28.554648" elapsed="0.460530"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:29.019947" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-06-16T05:18:29.165623" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_PASSWORD}</arg>
+<arg>${PASSWORD_VALIDO}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:29.018654" elapsed="0.401174"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:29.423687" level="INFO">Clicking button 'css:button[type='submit']'.</msg>
+<arg>${BOTON_INGRESAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:29.420604" elapsed="0.633377"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/secure</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:18:30.059628" elapsed="0.336417"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:30.398017" level="INFO">Clicking element 'css:a.button.secondary'.</msg>
+<arg>${BOTON_CERRAR_SESION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-16T05:18:30.396757" elapsed="0.541211"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAJE_FLASH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-16T05:18:30.939091" elapsed="0.246946"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-06-16T05:18:31.286662" level="INFO">Element 'css:#flash' contains text 'You logged out of the secure area!'.</msg>
+<arg>${MENSAJE_FLASH}</arg>
+<arg>You logged out of the secure area!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-06-16T05:18:31.187007" elapsed="0.100036"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-16T05:18:31.290443" elapsed="0.163044"/>
+</kw>
+<doc>Inicia sesión, espera la navegación a /secure por
+URL, y cierra sesión.</doc>
+<status status="PASS" start="2026-06-16T05:18:24.108087" elapsed="7.345690"/>
+</test>
+<doc>Práctica 11 — Sesión 6.
+Flujo completo de autenticación y navegación E2E usando
+localizadores CSS/XPath con waits explícitos y
+screenshot automático en fallo.</doc>
+<status status="PASS" start="2026-06-16T05:18:04.018064" elapsed="27.438084"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login E2E" id="s1" pass="3" fail="0" skip="0">Login E2E</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

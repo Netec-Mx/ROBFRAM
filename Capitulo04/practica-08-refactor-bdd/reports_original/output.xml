@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T04:47:37.493305" rpa="false" schemaversion="5">
+<suite id="s1" name="Activacion Tradicional" source="/home/csotelo/Development/formativa/robfram-code/sesion-04/practica-08-refactor-bdd/tests_original/activacion_tradicional.robot">
+<test id="s1-t1" name="Verificar activacion con credito suficiente" line="8">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:37.635869" level="INFO">${credito} = 100</msg>
+<var>${credito}</var>
+<arg>${100}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.632657" elapsed="0.003432"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:37.639664" level="INFO">${costo} = 50</msg>
+<var>${costo}</var>
+<arg>${50}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.636750" elapsed="0.003102"/>
+</kw>
+<if>
+<branch type="IF" condition="${credito} &gt;= ${costo}">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:37.642847" level="INFO">${resultado} = ACTIVO</msg>
+<var>${resultado}</var>
+<arg>ACTIVO</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.641599" elapsed="0.001372"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:37.640372" elapsed="0.002772"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${resultado}</var>
+<arg>RECHAZADO</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-06-16T04:47:37.643684" elapsed="0.000092"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:47:37.643281" elapsed="0.000647"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:47:37.640216" elapsed="0.003816"/>
+</if>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resultado}</arg>
+<arg>ACTIVO</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.644418" elapsed="0.001330"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:37.629200" elapsed="0.017086"/>
+</test>
+<test id="s1-t2" name="Verificar activacion con credito insuficiente" line="18">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:37.650576" level="INFO">${credito} = 0</msg>
+<var>${credito}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.648378" elapsed="0.002323"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:37.653265" level="INFO">${costo} = 50</msg>
+<var>${costo}</var>
+<arg>${50}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.651127" elapsed="0.002262"/>
+</kw>
+<if>
+<branch type="IF" condition="${credito} &gt;= ${costo}">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${resultado}</var>
+<arg>ACTIVO</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-06-16T04:47:37.654781" elapsed="0.000133"/>
+</kw>
+<status status="NOT RUN" start="2026-06-16T04:47:37.653755" elapsed="0.001348"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:37.656905" level="INFO">${resultado} = RECHAZADO</msg>
+<var>${resultado}</var>
+<arg>RECHAZADO</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.655667" elapsed="0.001367"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:37.655244" elapsed="0.001960"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:47:37.653654" elapsed="0.003659"/>
+</if>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resultado}</arg>
+<arg>RECHAZADO</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.657734" elapsed="0.001382"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:37.647141" elapsed="0.012445"/>
+</test>
+<doc>Práctica 8 — Sesión 4. VERSIÓN ANTES de refactorizar.
+Toda la lógica de negocio vive directo en el test case:
+un stakeholder no técnico no podría leer esto.</doc>
+<status status="PASS" start="2026-06-16T04:47:37.497108" elapsed="0.163851"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Activacion Tradicional" id="s1" pass="2" fail="0" skip="0">Activacion Tradicional</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

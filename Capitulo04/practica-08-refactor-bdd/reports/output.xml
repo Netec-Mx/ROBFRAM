@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.0 on linux)" generated="2026-06-16T04:47:38.978938" rpa="false" schemaversion="5">
+<suite id="s1" name="Activacion Bdd" source="/home/csotelo/Development/formativa/robfram-code/sesion-04/practica-08-refactor-bdd/tests/activacion_bdd.robot">
+<test id="s1-t1" name="Activación de plan con crédito suficiente" line="9">
+<kw name="Given un cliente con crédito suficiente solicita activar un plan" owner="dominio_keywords">
+<kw name="Calcular Resultado De Activacion" owner="tecnica_keywords">
+<if>
+<branch type="IF" condition="${credito} &gt;= ${costo}">
+<return>
+<value>ACTIVO</value>
+<status status="PASS" start="2026-06-16T04:47:39.285470" elapsed="0.000238"/>
+</return>
+<status status="PASS" start="2026-06-16T04:47:39.284532" elapsed="0.001478"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>RECHAZADO</value>
+<status status="NOT RUN" start="2026-06-16T04:47:39.286619" elapsed="0.000111"/>
+</return>
+<status status="NOT RUN" start="2026-06-16T04:47:39.286319" elapsed="0.000607"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:47:39.284380" elapsed="0.002696"/>
+</if>
+<msg time="2026-06-16T04:47:39.287796" level="INFO">${resultado} = ACTIVO</msg>
+<var>${resultado}</var>
+<arg>${100}</arg>
+<arg>${50}</arg>
+<doc>Compara crédito disponible contra el costo del plan.</doc>
+<status status="PASS" start="2026-06-16T04:47:39.280651" elapsed="0.007342"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:39.291479" level="INFO">${RESULTADO} = ACTIVO</msg>
+<arg>${RESULTADO}</arg>
+<arg>${resultado}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-06-16T04:47:39.289682" elapsed="0.002027"/>
+</kw>
+<doc>Ejemplo de negocio: cliente con 100 de crédito,
+plan que cuesta 50.</doc>
+<status status="PASS" start="2026-06-16T04:47:39.275332" elapsed="0.016690"/>
+</kw>
+<kw name="Then el plan queda activo" owner="dominio_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${RESULTADO}</arg>
+<arg>ACTIVO</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:47:39.293730" elapsed="0.001488"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:39.292647" elapsed="0.002875"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:39.272244" elapsed="0.023692"/>
+</test>
+<test id="s1-t2" name="Activación rechazada por crédito insuficiente" line="13">
+<kw name="Given un cliente con crédito insuficiente solicita activar un plan" owner="dominio_keywords">
+<kw name="Calcular Resultado De Activacion" owner="tecnica_keywords">
+<if>
+<branch type="IF" condition="${credito} &gt;= ${costo}">
+<return>
+<value>ACTIVO</value>
+<status status="NOT RUN" start="2026-06-16T04:47:39.303346" elapsed="0.000071"/>
+</return>
+<status status="NOT RUN" start="2026-06-16T04:47:39.302682" elapsed="0.000888"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>RECHAZADO</value>
+<status status="PASS" start="2026-06-16T04:47:39.303818" elapsed="0.000128"/>
+</return>
+<status status="PASS" start="2026-06-16T04:47:39.303673" elapsed="0.000408"/>
+</branch>
+<status status="PASS" start="2026-06-16T04:47:39.302583" elapsed="0.001603"/>
+</if>
+<msg time="2026-06-16T04:47:39.304648" level="INFO">${resultado} = RECHAZADO</msg>
+<var>${resultado}</var>
+<arg>${0}</arg>
+<arg>${50}</arg>
+<doc>Compara crédito disponible contra el costo del plan.</doc>
+<status status="PASS" start="2026-06-16T04:47:39.299763" elapsed="0.005018"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-06-16T04:47:39.306922" level="INFO">${RESULTADO} = RECHAZADO</msg>
+<arg>${RESULTADO}</arg>
+<arg>${resultado}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-06-16T04:47:39.305268" elapsed="0.001860"/>
+</kw>
+<doc>Ejemplo de negocio: cliente sin crédito disponible.</doc>
+<status status="PASS" start="2026-06-16T04:47:39.298329" elapsed="0.009082"/>
+</kw>
+<kw name="Then la activación es rechazada" owner="dominio_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${RESULTADO}</arg>
+<arg>RECHAZADO</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-16T04:47:39.309144" elapsed="0.001374"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:39.308078" elapsed="0.002739"/>
+</kw>
+<status status="PASS" start="2026-06-16T04:47:39.296763" elapsed="0.014457"/>
+</test>
+<doc>Práctica 8 — Sesión 4. VERSIÓN DESPUÉS de refactorizar:
+el test case solo conoce lenguaje de negocio (capa de
+dominio); la capa técnica queda oculta detrás.</doc>
+<status status="PASS" start="2026-06-16T04:47:38.983384" elapsed="0.329473"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Activacion Bdd" id="s1" pass="2" fail="0" skip="0">Activacion Bdd</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
