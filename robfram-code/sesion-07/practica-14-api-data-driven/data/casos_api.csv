@@ -1,0 +1,5 @@
+*** Test Cases ***,${endpoint},${status_esperado},[Tags]
+Servicio responde correctamente (200),/status/200,200,"smoke,positivo"
+Servicio de eco responde (200),/get,200,"smoke,positivo"
+Endpoint inexistente devuelve 404,/status/404,404,"regresion,negativo"
+Error interno del servidor devuelve 500,/status/500,500,"regresion,negativo"
