@@ -1,9 +1,0 @@
-venv/
-.venv/
-.env
-__pycache__/
-*.pyc
-.pytest_cache/
-reports*/
-*.egg-info/
-.python-version.bak

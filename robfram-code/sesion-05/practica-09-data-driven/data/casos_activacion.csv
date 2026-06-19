@@ -1,5 +1,0 @@
-*** Test Cases ***,${credito},${costo},${resultado_esperado},[Tags]
-Cliente con crédito suficiente en staging,100,50,ACTIVO,"ambiente:staging,prioridad:alta"
-Cliente sin crédito en staging,0,50,RECHAZADO,"ambiente:staging,prioridad:media"
-Cliente con crédito suficiente en produccion,200,150,ACTIVO,"ambiente:produccion,prioridad:alta"
-Cliente con crédito insuficiente en produccion,30,50,RECHAZADO,"ambiente:produccion,prioridad:baja"

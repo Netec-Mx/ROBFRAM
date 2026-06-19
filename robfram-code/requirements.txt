@@ -1,7 +1,0 @@
-robotframework==7.4.2
-pytest==9.1.0
-python-dotenv
-robotframework-datadriver
-robotframework-requests
-openpyxl
-fpdf2
