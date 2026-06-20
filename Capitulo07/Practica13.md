@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 13: Suite de pruebas API con autenticación Bearer y validación JSON
 
 ## Metadatos
