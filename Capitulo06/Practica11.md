@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 11: Automatización de flujo de login y navegación E2E
 
 ## Metadatos
