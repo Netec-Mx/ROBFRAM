@@ -20,11 +20,14 @@ Cuando las keywords integradas (`BuiltIn`, `Collections`, `OperatingSystem`) no 
 
 ```mermaid
 flowchart LR
-    A[Función Python] --> B[pytest:<br/>probar la lógica] --> C[@keyword:<br/>exponerla a RF] --> D[Suite .robot:<br/>usarla como keyword]
-```
+    A["Función Python"]
+    B["pytest<br/>Probar la lógica"]
+    C["Decorador @keyword<br/>Exponer a Robot Framework"]
+    D["Suite .robot<br/>Usar como keyword"]
 
-```{=typst}
-#flujo(("Función Python", "pytest: probar la lógica", "@keyword: exponerla a RF", "Suite .robot: usarla"))
+    A --> B
+    B --> C
+    C --> D
 ```
 
 ---
