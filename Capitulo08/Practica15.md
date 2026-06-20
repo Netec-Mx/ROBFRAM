@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 15: Proceso RPA con lectura de Excel, transformación y generación de reporte PDF
 
 ## Metadatos
