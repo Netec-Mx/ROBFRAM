@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 17: Ejecución avanzada por CLI con filtros de tags y regeneración de reportes
 
 ## Metadatos
