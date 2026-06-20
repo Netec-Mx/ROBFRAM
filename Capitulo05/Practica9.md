@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 9: Suite data-driven con CSV y segmentación por tags
 
 ## Metadatos
