@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 16: Proceso RPA end-to-end: web + API + archivos con checklist de calidad
 
 ## Metadatos
