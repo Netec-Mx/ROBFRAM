@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 1: Instalación del entorno y ejecución del primer test case
 
 ## Metadatos
