@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 12: Suite web con Page Object y captura de evidencias completas
 
 ## Metadatos
