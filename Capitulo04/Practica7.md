@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 7: Escritura de escenarios BDD para un flujo comercial de telecomunicaciones
 
 ## Metadatos
