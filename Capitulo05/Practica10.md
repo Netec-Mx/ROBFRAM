@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 10: Creación de librería Python personalizada e integración en suite
 
 ## Metadatos
