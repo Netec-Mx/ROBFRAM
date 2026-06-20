@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 8: Refactorización de test tradicional a modelo BDD con separación de capas
 
 ## Metadatos
