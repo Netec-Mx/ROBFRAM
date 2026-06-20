@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 18: Simulacro RFCP y proyecto final integrador
 
 ## Metadatos
