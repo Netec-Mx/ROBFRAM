@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 2: Análisis del reporte HTML generado
 
 ## Metadatos
