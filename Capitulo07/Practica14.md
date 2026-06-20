@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 14: Suite API data-driven: smoke y regresión desde CSV
 
 ## Metadatos
