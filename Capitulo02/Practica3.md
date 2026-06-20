@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 3: Suite estructurada con keywords reutilizables y archivo Resource
 
 ## Metadatos
