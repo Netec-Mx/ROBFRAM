@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 6: Suite robusta con manejo de fallas y recuperación
 
 ## Metadatos
