@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 4: Parametrización con Setup/Teardown y filtrado por tags
 
 ## Metadatos
