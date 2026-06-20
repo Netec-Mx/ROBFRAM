@@ -1,5 +1,3 @@
-![](../images/netec-logo.png){width=120px}
-
 # Práctica 5: Tests con lógica condicional y bucles de datos
 
 ## Metadatos
