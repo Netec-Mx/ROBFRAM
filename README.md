@@ -25,6 +25,7 @@ Cada uno de estos laboratorios está diseñado para ofrecerte una experiencia pr
 
   - Descripción: Interpretar el output.xml, log.html y report.html de una ejecución; identificar métricas clave de resultados.
   - ⏱️Duración estimada: 72 min
+    
 -------------------------------------------------------------------------------------------------------------------------------------
 ### Capítulo 2
 
